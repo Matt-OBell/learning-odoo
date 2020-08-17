@@ -8,10 +8,16 @@ class Student(models.Model):
     _description = "Students"
 
     partner_id = fields.Many2one(
-        comodel_name="res.partner", string="Related Partner", required=True, ondelete="cascade",
+        comodel_name="res.partner",
+        string="Related Partner",
+        required=True,
+        ondelete="cascade",
     )
     department_id = fields.Many2one(
-        comodel_name="hr.department", string="Department", required=True, ondelete="cascade",
+        comodel_name="hr.department",
+        string="Department",
+        required=True,
+        ondelete="cascade",
     )
     level_id = fields.Many2one(comodel_name="uni.level", string="Level", required=True)
 

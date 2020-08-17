@@ -41,14 +41,22 @@ class Semester(models.Model):
 
     name = fields.Char(string="Name", required=True)
     active = fields.Boolean(string="Active", default=True)
-    semester_type = fields.Selection(selection=SEMESTER_TYPE, required=True, string="Type")
-    session_id = fields.Many2one(comodel_name="uni.session", string="Session", required=True)
+    semester_type = fields.Selection(
+        selection=SEMESTER_TYPE, required=True, string="Type"
+    )
+    session_id = fields.Many2one(
+        comodel_name="uni.session", string="Session", required=True
+    )
     start_date = fields.Date(string="Semester Start", required=True)
     end_date = fields.Date(string="Semester End", required=True)
-    course_registration = fields.Selection(selection=[("open", "Open"), ("closed", "Closed")], string="Registration")
+    course_registration = fields.Selection(
+        selection=[("open", "Open"), ("closed", "Closed")], string="Registration"
+    )
     allow_registration = fields.Boolean(string="Late Registration")
 
-    registration_start_date = fields.Datetime(string="Registration Start", required=True)
+    registration_start_date = fields.Datetime(
+        string="Registration Start", required=True
+    )
     registration_end_date = fields.Datetime(string="Registration End", required=True)
 
     clearance_start_date = fields.Datetime(string="Clearance Start")

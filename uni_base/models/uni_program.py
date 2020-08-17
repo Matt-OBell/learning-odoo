@@ -11,7 +11,9 @@ class openuni_faculty(models.Model):
     name = fields.Char(string="Name")
 
     dean_id = fields.Many2one(comodel_name="hr.employee", string="Dean")
-    department_ids = fields.One2many("hr.department", "faculty_id", string="Departments")
+    department_ids = fields.One2many(
+        "hr.department", "faculty_id", string="Departments"
+    )
 
     # staff_ids = fields.One2many('hr.employee','faculty_id',string='Staffs')
     # student_ids = fields.One2many('res.student','faculty_id',string='Students')
@@ -25,7 +27,9 @@ class Program(models.Model):
 
     name = fields.Char(string="Name", required=True)
     status = fields.Boolean(string="Archive", default=True)
-    faculty_id = fields.Many2one(comodel_name="uni.faculty", string="Faculty", required=True)
+    faculty_id = fields.Many2one(
+        comodel_name="uni.faculty", string="Faculty", required=True
+    )
     course_ids = fields.Many2many(
         comodel_name="uni.course",
         relation="uni_course_uni_program_rel",
