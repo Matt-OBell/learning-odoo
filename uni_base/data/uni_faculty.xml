@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="faculty" model="uni.faculty">
+            <field name="name">Faculty of Arts and Social Sciences </field>
+        </record>
+        <record id="faculty1" model="uni.faculty">
+            <field name="name">Faculty of Management Sciences</field>
+        </record>
+        <record id="faculty2" model="uni.faculty">
+            <field name="name">Faculty of Science</field>
+        </record>
+        
+    </data>
+</odoo>

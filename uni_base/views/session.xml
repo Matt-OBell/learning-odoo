@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="uni_level_tree" model="ir.ui.view">
+            <field name="name">uni.level.tree</field>
+            <field name="model">uni.level</field>
+            <field name="priority">10</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="sequence" />
+                </tree>
+            </field>
+        </record>
+        <record id="uni_form_tree" model="ir.ui.view">
+            <field name="name">uni.level.tree</field>
+            <field name="model">uni.level</field>
+            <field name="priority">10</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" />
+                            </group>
+                            <group>
+                                <field name="sequence" />
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="student" string="Students">
+                                <field name="student_ids">
+                                    <tree>
+                                        <field name="name" />
+                                    </tree>
+                                </field>
+                            </page>
+                            <page name="course" string="Courses">
+                                <field name="course_ids">
+                                    <tree>
+                                        <field name="name" />
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="uni_session_tree" model="ir.ui.view">
+            <field name="name">uni.session.tree</field>
+            <field name="model">uni.session</field>
+            <field name="priority">10</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="start_date" />
+                    <field name="end_date" />
+                </tree>
+            </field>
+        </record>
+        <record id="uni_session_form" model="ir.ui.view">
+            <field name="name">uni.session.form</field>
+            <field name="model">uni.session</field>
+            <field name="priority">10</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" />
+                            <h1>
+                                <field name="name" placeholder="Session" required="True" />
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="start_date" />
+                            </group>
+                            <group>
+                                <field name="end_date" />
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Semesters" name="semester">
+                                <field name="semester_ids" readonly="1">
+                                    <tree>
+                                        <field name="name" />
+                                        <field name="semester_type" />
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="uni_semester_form" model="ir.ui.view">
+            <field name="name">uni.semester.form</field>
+            <field name="model">uni.semester</field>
+            <field name="priority">10</field>
+            <field name="arch" type="xml">
+                <form string="Session">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" />
+                            <h1>
+                                <field name="name" placeholder="Semester" required="True" />
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="semester_type" required="1" widget="radio" />
+                                <field name="session_id" required="1" />
+                                <field name="start_date" required="1" />
+                                <field name="end_date" required="1" />
+                            </group>
+                            <group>
+                                <field name="course_registration" required="1" widget="radio" />
+                                <field name="allow_registration" required="1" />
+                                <field name="registration_start_date" required="1" />
+                                <field name="registration_end_date" required="1" />
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Other info">
+                                <group>
+                                    <field name="clearance_start_date" />
+                                    <field name="clearance_end_date" />
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="uni_semester_tree" model="ir.ui.view">
+            <field name="name">uni.semester.tree</field>
+            <field name="model">uni.semester</field>
+            <field name="priority">10</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="session_id" />
+                    <field name="semester_type" />
+                    <field name="course_registration" />
+                    <field name="start_date" />
+                    <field name="end_date" />
+                </tree>
+            </field>
+        </record>
+        <record id="action_uni_semester" model="ir.actions.act_window">
+            <field name="name">Semesters</field>
+            <field name="res_model">uni.semester</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Let's create a semester
+                </p>
+            </field>
+        </record>
+        <record id="action_uni_session" model="ir.actions.act_window">
+            <field name="name">Session</field>
+            <field name="res_model">uni.session</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Let's create a session
+                </p>
+            </field>
+        </record>
+        <record id="action_uni_level" model="ir.actions.act_window">
+            <field name="name">Level</field>
+            <field name="res_model">uni.level</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Let's create a level
+                </p>
+            </field>
+        </record>
+        <menuitem id="uni_menu_administrative_admin" name="Administrative" parent="menu_administrative" sequence="10" />
+        <menuitem id="uni_menu_level" name="Levels" action="action_uni_level" parent="uni_menu_administrative_admin" sequence="10" />
+        <menuitem id="uni_menu_faculty" name="Sessions" action="action_uni_session" parent="uni_menu_administrative_admin" sequence="20" />
+        <menuitem id="uni_menu_semesters" name="Semesters" action="action_uni_semester" parent="uni_menu_administrative_admin" sequence="30" />
+    </data>
+</odoo>

@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_res_student,access_res_student,model_res_student,base.group_user,1,1,1,1
+access_uni_course,access_uni_course,model_uni_course,base.group_user,1,1,1,1
+access_uni_program,access_uni_program,model_uni_program,base.group_user,1,1,1,1
+access_uni_faculty,access_uni_faculty,model_uni_faculty,base.group_user,1,1,1,1
+access_uni_semester,access_uni_semester,model_uni_semester,base.group_user,1,1,1,1
+access_uni_session,access_uni_session,model_uni_session,base.group_user,1,1,1,1
+access_uni_level,access_uni_level,model_uni_level,base.group_user,1,1,1,1

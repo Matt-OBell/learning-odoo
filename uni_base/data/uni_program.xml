@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="program" model="uni.program">
+            <field name="name">English</field>
+            <field name="faculty_id" eval="ref('uni_base.faculty')" />
+        </record>
+        <record id="program1" model="uni.program">
+            <field name="name">History and International Studies</field>
+            <field name="faculty_id" eval="ref('uni_base.faculty')" />
+        </record>\
+        <record id="program2" model="uni.program">
+            <field name="name">Economics</field>
+            <field name="faculty_id" eval="ref('uni_base.faculty')" />
+        </record>
+        <record id="program3" model="uni.program">
+            <field name="name">Sociology</field>
+            <field name="faculty_id" eval="ref('uni_base.faculty')" />
+        </record>
+        <record id="program4" model="uni.program">
+            <field name="name">Psychology</field>
+            <field name="faculty_id" eval="ref('uni_base.faculty')" />
+        </record>
+        <record id="program5" model="uni.program">
+            <field name="name">Tourism Studies</field>
+            <field name="faculty_id" eval="ref('uni_base.faculty')" />
+        </record>
+        <record id="program6" model="uni.program">
+            <field name="name">Accounting</field>
+            <field name="faculty_id" eval="ref('uni_base.faculty1')" />
+        </record>
+        <record id="program7" model="uni.program">
+            <field name="name">Business Administration</field>
+            <field name="faculty_id" eval="ref('uni_base.faculty1')" />
+        </record>
+        <record id="program8" model="uni.program">
+            <field name="name">Marketing</field>
+            <field name="faculty_id" eval="ref('uni_base.faculty1')" />
+        </record>
+        <record id="program9" model="uni.program">
+            <field name="name">Industrial Relations and Personnel Management</field>
+            <field name="faculty_id" eval="ref('uni_base.faculty1')" />
+        </record>
+        <record id="program10" model="uni.program">
+            <field name="name">Mathematics</field>
+            <field name="faculty_id" eval="ref('uni_base.faculty2')" />
+        </record>
+        <record id="program11" model="uni.program">
+            <field name="name">Physics</field>
+            <field name="faculty_id" eval="ref('uni_base.faculty2')" />
+        </record>
+        <record id="program12" model="uni.program">
+            <field name="name">Computer Science</field>
+            <field name="faculty_id" eval="ref('uni_base.faculty2')" />
+        </record>
+        <record id="program13" model="uni.program">
+            <field name="name">Biology</field>
+            <field name="faculty_id" eval="ref('uni_base.faculty2')" />
+        </record>
+        <record id="program14" model="uni.program">
+            <field name="name">Marine Science</field>
+            <field name="faculty_id" eval="ref('uni_base.faculty2')" />
+        </record>
+        <record id="program15" model="uni.program">
+            <field name="name">Chemistry</field>
+            <field name="faculty_id" eval="ref('uni_base.faculty2')" />
+        </record>
+        <record id="program16" model="uni.program">
+            <field name="name">Biochemistry</field>
+            <field name="faculty_id" eval="ref('uni_base.faculty2')" />
+        </record>
+    </data>
+</odoo>
