@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+
+    <!-- Inherit id from sale Order -->
+    <record id="sale_order_inherit" model="ir.ui.view">
+      <field name="name">sale.order.inherit</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale.view_order_form"/>
+      <field name="arch" type="xml">
+        <field name="partner_id" position="after">
+          <field name="name"/>
+        </field>
+      </field>
+    </record>
+
+    <!-- tree view of accomodation model -->
+    <record id="accomodation_tree" model="ir.ui.view">
+      <field name="name">student.accomodation.tree</field>
+      <field name="model">student.accomodation</field>
+      <field name="arch" type="xml">
+        <tree string="Accomodation">
+           <field name="matric_no"/>
+           <field name="name"/>
+           <field name="name_seq"/>
+           <field name="image"/>
+           <field name="faculty"/>
+           <field name="date"/>
+           <field name="hostel_name"/>
+           <field name="hostel_type"/>
+           <field name="room_selection"/>
+           <field name="bunk"/>
+           <field name="hostel_block"/>
+           <field name="room"/>
+           <field name="hostel_portal"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- creating the form view of accomodation model -->
+    <record id="accomodation_form" model="ir.ui.view">
+       <field name="name">student.accomodation.form</field>
+       <field name="model">student.accomodation</field>
+       <field name="arch" type="xml">
+           <form string="Accomodation">
+               <!-- <header > -->
+                  <!-- <button string="Allocate" type="object" name="action_allocate" states=allocate class=oe_highlight/>  -->
+               <!-- </header> -->
+             <sheet>
+                 <field name="image" widget="image" class="oe_avatar"/>
+               <div class="oe_title">
+              <h1>
+                 <field name="matric_no"/>
+              </h1>
+               </div>
+            <group>
+               <field name="name_seq" readonly="1"/>
+               <field name="name"/>
+               <field name="faculty"/>
+               <field name="date"/>
+            </group>
+            <group>
+               <field name="hostel_type"/>
+            </group>
+            <group>
+              <field name="hostel_name"/>
+            </group>
+            <group>
+              <field name="room_selection"/>
+              <field name="hostel_block"/> 
+              <field name="room"/>
+              <field name="bunk"/>
+              <field name="hostel_portal"/>
+           </group>
+           </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- Action of student -->
+    <record id="action_accomodation" model="ir.actions.act_window">
+       <field name="name">Accomodation</field>
+       <field name="type">ir.actions.act_window</field>
+       <field name="res_model">student.accomodation</field>
+       <field name="view_mode">tree,form</field>
+       <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">
+          Click for accomodation allocation
+        </p>
+      </field>
+    </record>
+
+    <menuitem id="student_accomodation" name="Accomodation" sequence="0"/>
+       <menuitem id="accomodation_ballot" name="Accomodation" parent="student_accomodation" action="action_accomodation"/>
+  </data>
+</odoo>
