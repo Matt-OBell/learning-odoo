@@ -24,6 +24,7 @@
            <field name="name"/>
            <field name="name_seq"/>
            <field name="image"/>
+           <field name="academic_session"/>
            <field name="faculty"/>
            <field name="date"/>
            <field name="hostel_name"/>
@@ -43,9 +44,15 @@
        <field name="model">student.accomodation</field>
        <field name="arch" type="xml">
            <form string="Accomodation">
-               <!-- <header > -->
-                  <!-- <button string="Allocate" type="object" name="action_allocate" states=allocate class=oe_highlight/>  -->
-               <!-- </header> -->
+                <header >
+                   <button name="submit_accomodation" type="object" class="oe_highlight" states="draft" string="Submit"/>
+                   <!-- action, object-->
+                       <button name="validate_accomodation" type="object" class="oe_highlight" states="submit" string="Validate" />
+                        <button name="reject_accomodation" type="object" states="submit" string="Reject" />
+                        <button name="approve_accomodation" type="object" class="oe_highlight" states="validate" string="Allocated" />
+                        <button name="reject_accomodation2" type="object" class="oe_highlight" states="validate" string="Reject" />
+                        <field name="state" widget="statusbar" statusbar_visible="draft,submit,allocated"/>
+                </header>
              <sheet>
                  <field name="image" widget="image" class="oe_avatar"/>
                <div class="oe_title">
@@ -57,24 +64,33 @@
                <field name="name_seq" readonly="1"/>
                <field name="name"/>
                <field name="faculty"/>
-               <field name="date"/>
             </group>
+          <group>
+            <group>
+            <field name="academic_session"/>
+            </group>
+            
             <group>
                <field name="hostel_type"/>
+               <field name="date"/>
+               <field name="hostel_name"/>
+               <field name="room_selection"/>
             </group>
             <group>
-              <field name="hostel_name"/>
+               <field name="hostel_block"/> 
+               <field name="room"/>
+               <field name="bunk"/>
+               <field name="hostel_portal"/>
             </group>
-            <group>
-              <field name="room_selection"/>
-              <field name="hostel_block"/> 
-              <field name="room"/>
-              <field name="bunk"/>
-              <field name="hostel_portal"/>
            </group>
-           </sheet>
-        </form>
-      </field>
+             </sheet>
+                 <div class="oe_chatter">
+                   <field name="message_follower_ids" widget="mail_followers"/>
+                   <field name="activity_ids" widget="mail_activity"/>
+                   <field name="message_ids" widget="mail_thread"/>
+                 </div>
+           </form>
+       </field>
     </record>
 
     <!-- Action of student -->
@@ -91,6 +107,8 @@
     </record>
 
     <menuitem id="student_accomodation" name="Accomodation" sequence="0"/>
-       <menuitem id="accomodation_ballot" name="Accomodation" parent="student_accomodation" action="action_accomodation"/>
+       <menuitem id="student" name="Accomodation" parent="student_accomodation"/>
+         <menuitem id="accomodation_ballot" name="Request" parent="student" action="action_accomodation"/>
+
   </data>
 </odoo>
