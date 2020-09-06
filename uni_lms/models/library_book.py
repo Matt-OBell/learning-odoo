@@ -4,7 +4,7 @@ from odoo import models, fields
 class Book(models.Model):
     _name = 'library.book'
     _description = 'Books'
-    name = fields.Char(string='Title', required=True)
+    name = fields.Char(string='Title', required=True) 
     isbn = fields.Char(string='ISBN')
     active = fields.Boolean('Active?', default=True)
     published_date = fields.Date()
