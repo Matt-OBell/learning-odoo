@@ -22,7 +22,7 @@
            <form string="Portal">
              <sheet>
                   <h2>
-                      <field name="portal_id"/>
+                      <field name="portal_id" default_focus="1" placeholder="Portal ID"/>/>
                   </h2>
              <group>
                    <field name="portal_name"/>

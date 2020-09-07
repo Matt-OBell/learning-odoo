@@ -20,9 +20,9 @@
       <field name="arch" type="xml">
            <form string="Hostel">
              <sheet>
-                  <h2>
-                      <field name="hostel_name"/>
-                  </h2>
+                  <h3>
+                      <field name="hostel_name" default_focus="1" placeholder="Hostel Name"/>
+                  </h3>
              <group>
                   <field name="hostel_no"/>
              </group>
