@@ -1,7 +1,14 @@
 {
     'name': 'University Library Management System',
-    'summary': 'A Module for managing library.',
-    'description': 'Library Management System',
+    'summary': 'Manage your library efficiently.',
+    'description':
+    """Detailed Feature List
+    Card Details: Librarian can create number of Identity card for Students.
+    Book Information: Librarian can create and update and manage book lists and related data.
+    Book Availability: 
+    Book Issuance: Librarian can grant new book requests,track issued books
+    Return policy:  and returned books.
+    """,
     'author': "Matt O'Bell Ltd, Peter Ajiboye",
     'website': "http://www.mattobell.net",
     'category': 'Extra Tools',
