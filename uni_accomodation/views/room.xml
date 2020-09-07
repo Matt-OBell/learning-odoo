@@ -20,10 +20,11 @@
       <field name="arch" type="xml">
            <form string="Room">
              <sheet>
-                  <h2>
-                      <field name="room_no"/>
-                  </h2>
+                  
+                    
+                  
              <group>
+               <field name="room_no"/>
                   <field name="room_floor"/>
              </group>
              </sheet>
