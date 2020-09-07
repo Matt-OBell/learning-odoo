@@ -46,7 +46,6 @@
       </field>
     </record>
 
-  <menuitem id="portal_block" name="Portal" sequence="0"/>
-       <menuitem id="Portal" name="Portal" parent="portal_block"/>
+  <menuitem id="hostel_portal" name="Portal" parent="student" action="action_portal"/>
  </data>
 </odoo>

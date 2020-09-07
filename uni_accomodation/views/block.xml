@@ -43,8 +43,7 @@
             </p>
       </field>
     </record>
+             <menuitem id="hostel_block" name="Block" parent="student" action="action_block"/>
 
-  <menuitem id="hostel_block" name="Block" sequence="0"/>
-       <menuitem id="Block" name="Block" parent="hostel_block"/>
  </data>
 </odoo>
