@@ -44,7 +44,6 @@
       </field>
     </record>
 
-  <menuitem id="hostel_name" name="Hostel" sequence="0"/>
-       <menuitem id="Name" name="Hostel" parent="hostel_name"/>
+  <menuitem id="accomodation_hostel" name="Hostel" parent="student" action="action_hostel"/>
  </data>
 </odoo>

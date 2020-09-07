@@ -43,7 +43,7 @@
             </p>
       </field>
     </record>
-             <menuitem id="accomodaaaaaaaaaaa___mama" name="Block" parent="student" action="action_block"/>
+             <menuitem id="hostel_block" name="Block" parent="student" action="action_block"/>
 
  </data>
 </odoo>
