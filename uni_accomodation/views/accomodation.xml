@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+
+    <!-- Inherit id from sale Order -->
+    <record id="sale_order_inherit" model="ir.ui.view">
+      <field name="name">sale.order.inherit</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale.view_order_form"/>
+      <field name="arch" type="xml">
+        <field name="partner_id" position="after">
+          <field name="name"/>
+        </field>
+      </field>
+    </record>
+
+    <!-- tree view of accomodation model -->
+    <record id="accomodation_tree" model="ir.ui.view">
+      <field name="name">student.accomodation.tree</field>
+      <field name="model">student.accomodation</field>
+      <field name="arch" type="xml">
+        <tree string="Accomodation">
+           <field name="matric_no"/>
+           <field name="name"/>
+           <field name="name_seq"/>
+           <field name="image"/>
+           <field name="academic_session"/>
+           <field name="faculty"/>
+           <field name="date"/>
+           <field name="hostel_name"/>
+           <field name="hostel_type"/>
+           <field name="room_type"/>
+           <field name="bunk"/>
+           <field name="hostel_block"/>
+           <field name="room"/>
+           <field name="hostel_portal"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- creating the form view of accomodation model -->
+    <record id="accomodation_form" model="ir.ui.view">
+       <field name="name">student.accomodation.form</field>
+       <field name="model">student.accomodation</field>
+       <field eval="8" name="priority" />
+       <field name="arch" type="xml">
+           <form string="Accomodation">
+                <header >
+                   <button name="submit_accomodation" type="object" class="oe_highlight" states="draft" string="Submit"/>
+                   <!-- action, object-->
+                       <button name="validate_accomodation" type="object" class="oe_highlight" states="submit" string="Validate" />
+                        <button name="reject_accomodation" type="object" states="submit" string="Reject" />
+                        <button name="approve_accomodation" type="object" class="oe_highlight" states="validate" string="Allocated" />
+                        <button name="reject_accomodation2" type="object" class="oe_highlight" states="validate" string="Reject" />
+                        <field name="state" widget="statusbar" statusbar_visible="draft,submit,allocated"/>
+                </header>
+             <sheet>
+                 <field name="image" widget="image" class="oe_avatar"/>
+               <div class="oe_title">
+                <field name="name_seq" readonly="1"/>
+              <h1>
+                 <field name="matric_no" default_focus="1" placeholder="Matric No"/>
+              </h1>
+               </div>
+            <group>
+               <field name="name"/>
+               <field name="faculty"/>
+            </group>
+          <group>
+            <group>
+            <field name="academic_session"/>
+            </group>
+            
+            <group>
+               <field name="hostel_type"/>
+               <field name="date"/>
+               <field name="hostel_name"/>
+               <field name="room_type"/>
+            </group>
+            <group>
+               <field name="hostel_block"/> 
+               <field name="room"/>
+               <field name="bunk"/>
+               <field name="hostel_portal"/>
+            </group>
+           </group>
+             </sheet>
+                 <div class="oe_chatter">
+                   <field name="message_follower_ids" widget="mail_followers"/>
+                   <field name="activity_ids" widget="mail_activity"/>
+                   <field name="message_ids" widget="mail_thread"/>
+                 </div>
+           </form>
+       </field>
+    </record>
+
+    <!-- Action of student -->
+    <record id="action_accomodation" model="ir.actions.act_window">
+       <field name="name">Accomodation</field>
+       <field name="type">ir.actions.act_window</field>
+       <field name="res_model">student.accomodation</field>
+       <field name="view_mode">tree,form</field>
+       <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">
+          Click for accomodation allocation
+        </p>
+      </field>
+    </record>
+
+    <menuitem id="student_accomodation" name="Accomodation" sequence="0"/>
+       <menuitem id="student" name="Accomodation" parent="student_accomodation"/>
+         <menuitem id="accomodation_ballot" name="Request" parent="student" action="action_accomodation"/>
+
+  </data>
+</odoo>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+ <!-- tree view of portal model -->
+    <record id="portal_tree" model="ir.ui.view">
+      <field name="name">hostel.portal.tree</field>
+      <field name="model">hostel.portal</field>
+      <field name="arch" type="xml">
+             <tree string="Portal">
+                  <field name="portal_id"/>
+                  <field name="portal_name"/>
+                  <field name="portal_gender"/>
+             </tree>
+      </field>
+    </record>
+
+<!-- creating the form view of portal model -->
+    <record id="portal_form" model="ir.ui.view">
+         <field name="name">hostel.portal.form</field>
+         <field name="model">hostel.portal</field>
+      <field name="arch" type="xml">
+           <form string="Portal">
+             <sheet>
+                  <h2>
+                      <field name="portal_id" default_focus="1" placeholder="Portal ID"/>/>
+                  </h2>
+             <group>
+                   <field name="portal_name"/>
+                   <field name="portal_gender"/>
+             </group>
+             </sheet>
+           </form>
+      </field>
+    </record>
+
+    <!-- Action of student -->
+    <record id="action_portal" model="ir.actions.act_window">
+          <field name="name">Portal</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="res_model">hostel.portal</field>
+          <field name="view_mode">tree,form</field>
+       <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+              Create block for allocation
+            </p>
+      </field>
+    </record>
+
+  <menuitem id="hostel_portal" name="Portal" parent="student" action="action_portal"/>
+ </data>
+</odoo>

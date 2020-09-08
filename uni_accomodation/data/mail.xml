@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="accomodation_application" model="mail.template">
+            <field name="name">Accomodation Application</field>
+            <field name="subject">Application submitted by ${user.name}</field>
+            <field name="email_from">${object.matric_no.student_email | safe}</field>
+            <!-- I can access the record this way but i want to pass records from the context-->
+            <field name="email_to">${ctx.get("recipient_email") | safe}</field>
+            <field name="user_signature" eval="False" />
+            <field name="lang">${object.lang}</field>
+            <field name="auto_delete" eval="False" />
+            <field name="model_id" ref="model_student_accomodation" />
+            <field name="body_html"><![CDATA[
+                Dear Sir/Ma,
+                ${object.name} was submitted by ${user.name} and is awaiting your allocation.
+                <p style="height:10px";width:15px;background:#efrggf>
+                    <a href=${ctx.get('url')} target="_blank">See Document</a>
+                </p>
+                <br/>
+                Best Regards,
+                ${user.name}
+            ]]>
+            </field>
+        </record>
+
+        <record id="accomodation_template_validate" model="mail.template">
+            <field name="name">Allocate Application</field>
+            <field name="subject">Accomodation validated by ${user.name}</field>
+            <field name="email_from">padinality@yahoo.com</field>
+            <field name="email_to">${ctx.get("recipient").email|safe}</field>
+            <field name="user_signature" eval="False" />
+            <field name="lang">${object.lang}</field>
+            <field name="auto_delete" eval="False" />
+            <field name="model_id" ref="model_student_accomodation" />
+            <field name="body_html"><![CDATA[
+                Dear Sir/Ma,
+                ${object.name}  your accomodation has been allocated by ${user.name}.
+                <p style="height:10px";width:15px;background:#efrggf>
+                    <a href=${ctx.get('url')} target="_blank">See Document</a>
+                </p>
+                <br/>
+                Best Regards,
+                ${user.name}
+            ]]>
+            </field>
+        </record>
+    </data>
+</odoo>
