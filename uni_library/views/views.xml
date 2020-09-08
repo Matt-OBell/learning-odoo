@@ -47,11 +47,11 @@
   </record>
 
   <act_window id="action_books" name="Library management" res_model="uni_library.uni_library" view_mode="tree,form"/>
+  <act_window id="action_members" name="Member management" res_model="uni_library.uni_library" view_mode="tree,form"/>
 
   <menuitem id="uni_library_menu_root" name="Library"/>
   <menuitem id="uni_library_books" name="Books" parent="uni_library_menu_root"/>
-  <!-- <menuitem id="uni_library_members" name="Members" parent="uni_library_menu_root"/> -->
-
   <menuitem id="uni_library_books_action" name="Get Books" parent="uni_library_books" action="action_books"/>
-
+  
+  <menuitem id="uni_library_members" name="Members" parent="uni_library_menu_root" action="action_members" />
 </odoo>
