@@ -13,12 +13,12 @@
                        <table>
                            <tr>
                               <td>
-                                <p style="text.align:right;"><strong>Matric No:</strong></p>
+                                 <p style="text.align:right;"><strong>Matric No:</strong></p>
                                  <p style="text.align:right;"><strong>Name:</strong></p>
                                  <p style="text.align:right;"><strong>Hostel Name:</strong></p>
-                                  <p style="text.align:right;"><strong>Room No:</strong></p>
-                                   <p style="text.align:right;"><strong>Block No:</strong></p>
-                                    <p style="text.align:right;"><strong>Bunk:</strong></p>
+                                 <p style="text.align:right;"><strong>Room No:</strong></p>
+                                 <p style="text.align:right;"><strong>Block No:</strong></p>
+                                 <p style="text.align:right;"><strong>Bunk:</strong></p>
                               </td>
                               <td>
                                  <p style="text.align:left:padding.left:10px;"><span t-field="o.matric_no"/></p>
@@ -30,7 +30,7 @@
                               </td>
                            </tr>
                        </table>
-                    <p>Proceed to the nearest bank to pay for your accomodation <span t-field="o.name"/></p>
+                         <p>Proceed to the nearest bank to pay for your accomodation <span t-field="o.name"/></p>
                 </div>
             </t>
         </t>
