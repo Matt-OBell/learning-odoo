@@ -1,10 +1,6 @@
 from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
-
-
-class saleOrderInherit(models.Model):
-    _inherit = 'sale.order'
-    name = fields.Char(string='Name')
+from datetime import datetime
 
 
 class StudentAccomodation(models.Model):
@@ -19,7 +15,9 @@ class StudentAccomodation(models.Model):
     name_seq = fields.Char(string='Hostel Reference', required=True, copy=False, readonly=True, index=True, default=lambda self: _('New'))
     faculty = fields.Many2one("uni.faculty", string="Faculty", required=True)
     academic_session = fields.Many2one("uni.session", string="Semester", required=True)
-    date = fields.Date(string='Date')
+    date = fields.Datetime(
+        'Date', required=True, copy=False,
+        default=lambda self: fields.Datetime.now())
     hostel_name = fields.Many2one("hostel.name", string="Hostel Name", track_visibility="always")
     hostel_type = fields.Selection([
         ("male", "Male"),
@@ -84,7 +82,3 @@ class StudentAccomodation(models.Model):
 
     def reject_accomodation(self):
         self.state = 'draft'
-
-
-
-
