@@ -34,8 +34,8 @@ class StudentAccomodation(models.Model):
         ("Up", "Up Bunk"),
         ("Down", "Down Bunk"),
     ], string="Bunk")
-    hostel_block = fields.Many2one("hostel.block", string="Block")
-    room = fields.Many2one("hostel.room", string="Room No")
+    block_id = fields.Many2one("hostel.block", string="Block")
+    room_id = fields.Many2one("hostel.room", string="Room No")
     hostel_portal = fields.Many2one("hostel.portal", string="Portal Details")
     state = fields.Selection(selection=[
         ('draft', 'New'),

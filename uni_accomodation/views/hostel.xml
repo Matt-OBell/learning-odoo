@@ -7,8 +7,10 @@
       <field name="model">hostel.name</field>
       <field name="arch" type="xml">
              <tree string="Hostel">
-                  <field name="hostel_name"/>
+                  <field name="name"/>
                   <field name="hostel_no"/>
+                  <field name="room"/>
+                  <field name="block"/>
              </tree>
       </field>
     </record>
@@ -20,11 +22,13 @@
       <field name="arch" type="xml">
            <form string="Hostel">
              <sheet>
-                  <h3>
-                      <field name="hostel_name" default_focus="1" placeholder="Hostel Name"/>
-                  </h3>
+                 <h2>
+                      <field name="name" default_focus="1" placeholder="Hostel Name"/>
+                 </h2>
              <group>
                   <field name="hostel_no"/>
+                  <field name="room"/>
+                  <field name="block"/>
              </group>
              </sheet>
            </form>

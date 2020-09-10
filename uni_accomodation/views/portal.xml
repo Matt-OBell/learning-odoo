@@ -8,7 +8,7 @@
       <field name="arch" type="xml">
              <tree string="Portal">
                   <field name="portal_id"/>
-                  <field name="portal_name"/>
+                  <field name="name"/>
                   <field name="portal_gender"/>
              </tree>
       </field>
@@ -25,7 +25,7 @@
                       <field name="portal_id" default_focus="1" placeholder="Portal ID"/>/>
                   </h2>
              <group>
-                   <field name="portal_name"/>
+                   <field name="name"/>
                    <field name="portal_gender"/>
              </group>
              </sheet>
