@@ -7,7 +7,7 @@
       <field name="model">hostel.room</field>
       <field name="arch" type="xml">
              <tree string="Room">
-                  <field name="room_no"/>
+                  <field name="name"/>
                   <field name="room_floor"/>
              </tree>
       </field>
@@ -20,12 +20,9 @@
       <field name="arch" type="xml">
            <form string="Room">
              <sheet>
-                  
-                    
-                  
              <group>
-               <field name="room_no"/>
-                  <field name="room_floor"/>
+               <field name="name"/>
+               <field name="room_floor"/>
              </group>
              </sheet>
            </form>

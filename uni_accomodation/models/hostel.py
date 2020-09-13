@@ -7,5 +7,7 @@ class HostelName(models.Model):
     _description = 'Hostel'
     
     #fields
-    hostel_name = fields.Char(string="Hostel Name")
+    name = fields.Char(string="Hostel Name",required=True)
     hostel_no = fields.Integer(string='Hostel No')
+    room = fields.One2many("hostel.room", "hostel_id", string="Room")
+    block = fields.One2many("hostel.block", "hostel_id", string="Block")

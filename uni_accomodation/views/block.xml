@@ -7,8 +7,9 @@
       <field name="model">hostel.block</field>
       <field name="arch" type="xml">
              <tree string="Block">
-                  <field name="block_no"/>
+                  <field name="name"/>
                   <field name="block_id"/>
+                  <!-- <field name="hostel_id"/> -->
              </tree>
       </field>
     </record>
@@ -20,11 +21,9 @@
       <field name="arch" type="xml">
            <form string="Block">
              <sheet>
-                  <h2>
-                      <field name="block_no"/>
-                  </h2>
-             <group>
-                  <field name="block_id"/>
+              <group>
+                     <field name="name"/>
+                     <field name="block_id"/>
              </group>
              </sheet>
            </form>

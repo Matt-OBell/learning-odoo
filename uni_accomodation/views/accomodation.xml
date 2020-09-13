@@ -30,9 +30,9 @@
            <field name="hostel_name"/>
            <field name="hostel_type"/>
            <field name="room_type"/>
+           <field name="room_id"/>
+           <field name="block_id"/>
            <field name="bunk"/>
-           <field name="hostel_block"/>
-           <field name="room"/>
            <field name="hostel_portal"/>
         </tree>
       </field>
@@ -67,19 +67,17 @@
                <field name="faculty"/>
             </group>
           <group>
-            <group>
-            <field name="academic_session"/>
-            </group>
+             <group>
+             <field name="academic_session"/>
+             <field name="date"/>
+             </group>
             
             <group>
-               <field name="hostel_type"/>
-               <field name="date"/>
-               <field name="hostel_name"/>
+                <field name="hostel_type"/>
+               <field name="hostel_name"/>       
                <field name="room_type"/>
-            </group>
-            <group>
-               <field name="hostel_block"/> 
-               <field name="room"/>
+               <field name="room_id"/>
+               <field name="block_id"/>
                <field name="bunk"/>
                <field name="hostel_portal"/>
             </group>
