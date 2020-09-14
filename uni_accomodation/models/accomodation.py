@@ -2,7 +2,6 @@ from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
 from datetime import datetime
 
-
 class StudentAccomodation(models.Model):
     _name = 'student.accomodation'
     _inherit = ['mail.thread', 'mail.activity.mixin']
@@ -37,6 +36,7 @@ class StudentAccomodation(models.Model):
     block_id = fields.Many2one("hostel.block", string="Block")
     room_id = fields.Many2one("hostel.room", string="Room No")
     hostel_portal = fields.Many2one("hostel.portal", string="Portal Details")
+    floor_id = fields.Many2one("hostel.floor", string='Floor')
     state = fields.Selection(selection=[
         ('draft', 'New'),
         ('submit', 'Open'),
@@ -55,7 +55,7 @@ class StudentAccomodation(models.Model):
         accomodations = self.search(domain)
         if accomodations:
             raise ValidationError(_("Accomodation is already allocated to student"))
-        vals['name'] = self.env['ir.sequence'].next_by_code('student.accomodation.sequence')
+        vals['name_seq'] = self.env['ir.sequence'].next_by_code('student.accomodation.sequence')
         result = super(StudentAccomodation, self).create(vals)
         return result
 

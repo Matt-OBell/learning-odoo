@@ -11,24 +11,68 @@
                     <h2>Congratulations!</h2>
                     <br></br>
                        <table>
-                           <tr>
-                              <td>
-                                 <p style="text.align:right;"><strong>Matric No:</strong></p>
-                                 <p style="text.align:right;"><strong>Name:</strong></p>
-                                 <p style="text.align:right;"><strong>Hostel Name:</strong></p>
-                                 <p style="text.align:right;"><strong>Room No:</strong></p>
-                                 <p style="text.align:right;"><strong>Block No:</strong></p>
-                                 <p style="text.align:right;"><strong>Bunk:</strong></p>
-                              </td>
-                              <td>
-                                 <p style="text.align:left:padding.left:10px;"><span t-field="o.matric_no"/></p>
-                                 <p style="text.align:left:padding.left:10px;"><span t-field="o.name"/></p>
-                                 <p style="text.align:left:padding.left:10px;"><span t-field="o.hostel_name"/></p>
-                                 <p style="text.align:left:padding.left:10px;"><span t-field="o.room_id"/></p>
-                                 <p style="text.align:left:padding.left:10px;"><span t-field="o.block_id"/></p>
-                                 <p style="text.align:left:padding.left:10px;"><span t-field="o.bunk"/></p>
-                              </td>
-                           </tr>
+                            <tr>
+                                 <td>
+                                         <p style="text.align:right;"><strong>Matric No:</strong></p>
+                                 </td>
+                                 <td>
+                                         <p style="text.align:left:padding.left:10px;"><span t-field="o.matric_no"/></p>
+                                 </td>
+                            </tr>     
+
+                            <tr>
+                                 <td>
+                                          <p style="text.align:right;"><strong>Name:</strong></p>
+                                 </td>
+                                 <td>
+                                         <p style="text.align:left:padding.left:10px;"><span t-field="o.name"/></p>
+                                 </td>
+                            </tr>
+
+                            <tr>
+                                 <td>
+                                         <p style="text.align:right;"><strong>Hostel Name:</strong></p>
+                                 </td>
+                                  <td>
+                                         <p style="text.align:left:padding.left:10px;"><span t-field="o.hostel_name"/></p>
+                                 </td>
+                            </tr>     
+
+                            <tr>
+                                 <td>
+                                         <p style="text.align:right;"><strong>Room No:</strong></p>
+                                 </td>
+                                 <td>
+                                         <p style="text.align:left:padding.left:10px;"><span t-field="o.room_id"/></p>
+                                 </td>
+                            </tr>
+
+                            <tr>
+                                 <td>
+                                         <p style="text.align:right;"><strong>Block No:</strong></p>
+                                 </td>
+                                 <td>
+                                         <p style="text.align:left:padding.left:10px;"><span t-field="o.block_id"/></p>
+                                 </td>
+                            </tr>
+
+                            <tr>
+                                 <td>
+                                         <p style="text.align:right;"><strong>Floor:</strong></p>
+                                 </td>
+                                 <td>
+                                         <p style="text.align:left:padding.left:10px;"><span t-field="o.room_id.room_floor"/></p>
+                                 </td>
+                            </tr>
+
+                            <tr>
+                                 <td>
+                                         <p style="text.align:right;"><strong>Bunk:</strong></p>
+                                 </td>
+                                  <td>
+                                         <p style="text.align:left:padding.left:10px;"><span t-field="o.bunk"/></p>
+                                 </td>
+                            </tr>
                        </table>
                          <p>Proceed to the nearest bank to pay for your accomodation <span t-field="o.name"/></p>
                 </div>
