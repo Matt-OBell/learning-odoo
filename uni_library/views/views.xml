@@ -52,6 +52,10 @@
   <menuitem id="uni_library_menu_root" name="Library"/>
   <menuitem id="uni_library_books" name="Books" parent="uni_library_menu_root"/>
   <menuitem id="uni_library_books_action" name="Get Books" parent="uni_library_books" action="action_books"/>
+<<<<<<< HEAD
+  
+=======
 
+>>>>>>> cb32ac511abab41ecfbca50374cd2cf1b0b397be
   <menuitem id="uni_library_members" name="Members" parent="uni_library_menu_root" action="action_members" />
 </odoo>

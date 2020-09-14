@@ -13,7 +13,7 @@
     'website': "http://www.mattobell.net",
     'category': 'Extra Tools',
     'version': '13.0.0.1',
-    'depends': ['base', 'uni_base'],
+    'depends': ['uni_base'],
     'application': 'True',
     'data': [
         'security/library_security.xml',
