@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+        <record id="view_form_members" model="ir.ui.view">
+            <field name="name">Member Form</field>
+            <field name="model">library.member</field>
+            <field name="arch" type="xml">
+                <form string="Member">
+                    <header>
+                        <button string="Submit" name="submit" type="object" state="draft" class="oe_highlight"/>
+                        <button string="Pending" name="pending" type="object" state="open" class="oe_highlight"/>
+                        <button string="Done" name="done" type="object" state="confirm" class="oe_highlight"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,open,confirm"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="name" />
+                            <field name="library_id"/>
+                            <field name="membership_type" />
+                            <field name="date_of_membership" />
+                            <field name="total_books_checkout" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_tree_members" model="ir.ui.view">
+            <field name="name">Member Tree</field>
+            <field name="model">library.member</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="library_id"/>
+                    <field name="membership_type" />
+                    <field name="date_of_membership" />
+                    <field name="total_books_checkout" />
+                </tree>
+            </field>
+        </record>
+    </data>
+
+</odoo>

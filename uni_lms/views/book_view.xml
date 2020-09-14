@@ -5,17 +5,25 @@
             <field name="name">Book Form</field>
             <field name="model">library.book</field>
             <field name="arch" type="xml">
-                <form>
-                    <group>
-                        <field name="name" />
-                        <field name="author_ids" widget="many2many_tags" />
-                        <field name="publisher_id" />
-                        <field name="published_date" />
-                        <field name="isbn" />
-                        <field name="active" />
-                        <field name="image" widget="image"/>
-                        <field name="category" widget="many2many_tags" />
-                    </group>
+                <form string="Book">
+                    <header groups="base.group_user">
+                        <button string="Check ISBN" name="button_check_isbn" type="object" class="oe_highlight"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="name" />
+                            <field name="author_ids" widget="many2many_tags" />
+                            <field name="publisher_id" />
+                            <field name="published_date" />
+                        </group>
+                        <group>
+                            <field name="isbn" />
+                            <field name="active" />
+                            <field name="is_available" />
+                            <field name="image" widget="image"/>
+                            <field name="category" widget="many2many_tags" />
+                        </group>
+                    </sheet>
                 </form>
             </field>
         </record>

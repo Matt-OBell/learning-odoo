@@ -21,5 +21,6 @@
         'views/library_menu.xml',
         'views/book_view.xml',
         'views/member_view.xml',
+        'data/sequence.xml',
     ],
 }
