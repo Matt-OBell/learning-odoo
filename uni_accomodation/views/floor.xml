@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+ <!-- tree view of floor model -->
+    <record id="floor_tree" model="ir.ui.view">
+      <field name="name">hostel.floor.tree</field>
+      <field name="model">hostel.floor</field>
+      <field name="arch" type="xml">
+             <tree string="Floor">
+                  <field name="name"/>
+             </tree>
+      </field>
+    </record>
+
+<!-- creating the form view of hostel model -->
+    <record id="floor_form" model="ir.ui.view">
+         <field name="name">hostel.floor.form</field>
+         <field name="model">hostel.floor</field>
+      <field name="arch" type="xml">
+           <form string="Floor">
+             <sheet>
+             <group>
+                  <field name="name"/>
+             </group>
+             </sheet>
+           </form>
+      </field>
+    </record>
+
+    <!-- Action of student -->
+    <record id="action_floor" model="ir.actions.act_window">
+          <field name="name">Floor</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="res_model">hostel.floor</field>
+          <field name="view_mode">tree,form</field>
+       <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+               Create hostel floor
+            </p>
+      </field>
+    </record>
+
+  <menuitem id="hostel_floor" name="Floor" parent="student" action="action_floor"/>
+ </data>
+</odoo>

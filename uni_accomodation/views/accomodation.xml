@@ -107,7 +107,7 @@
 
     <menuitem id="student_accomodation" name="Accomodation" sequence="0"/>
        <menuitem id="student" name="Accomodation" parent="student_accomodation"/>
-         <menuitem id="accomodation_ballot" name="Request" parent="student" action="action_accomodation"/>
+         <menuitem id="accomodation_ballot" name="Allocation" parent="student" action="action_accomodation"/>
 
   </data>
 </odoo>

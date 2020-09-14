@@ -4,3 +4,4 @@ from . import room
 from . import block
 from . import portal
 from . import hostel
+from . import floor

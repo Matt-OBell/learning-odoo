@@ -4,7 +4,7 @@
 
         <!-- Sequences for Accomodation-->
         <record id="seq_student_accomodation" model="ir.sequence">
-            <field name="name">Accomodation Sequence</field>
+            <field name="name_seq">Accomodation Sequence</field>
             <field name="code">student.accomodation.sequence</field>
             <field name="prefix">AU</field>
             <field name="padding">5</field>
