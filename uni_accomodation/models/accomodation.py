@@ -2,7 +2,6 @@ from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
 from datetime import datetime
 
-
 class StudentAccomodation(models.Model):
     _name = 'student.accomodation'
     _inherit = ['mail.thread', 'mail.activity.mixin']
@@ -56,7 +55,6 @@ class StudentAccomodation(models.Model):
         accomodations = self.search(domain)
         if accomodations:
             raise ValidationError(_("Accomodation is already allocated to student"))
-
         vals['name_seq'] = self.env['ir.sequence'].next_by_code('student.accomodation.sequence')
         result = super(StudentAccomodation, self).create(vals)
         return result
