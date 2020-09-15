@@ -1,2 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_uni_library_uni_library,uni_library.uni_library,model_uni_library_uni_library,base.group_user,1,1,1,1

@@ -5,7 +5,9 @@ from odoo import models, fields, api
 class Member(models.Model):
     _name = 'library.member'
     _description = 'Members'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     name = fields.Char(string='Name', required=True)
+    email = fields.Char(required=True)
     date_of_membership = fields.Date(
         string='Date of Membership', default=date.today())
     library_id = fields.Char(string='Library ID', readonly=True)

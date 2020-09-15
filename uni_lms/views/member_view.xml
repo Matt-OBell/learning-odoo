@@ -15,12 +15,22 @@
                     </header>
                     <sheet>
                         <group>
-                            <field name="name" />
+                            <group>
+                            <field name="name"/>
+                            <field name="email"/>
                             <field name="library_id"/>
+                            </group>
+                            <group>
                             <field name="membership_type" />
                             <field name="date_of_membership" />
                             <field name="total_books_checkout" />
+                            </group>
                         </group>
+                        <div class="oe_chatter">
+                            <field name="message_follower_ids" widget="mail_followers" />
+                            <field name="activity_ids" widget="mail_activity" />
+                            <field name="message_ids" widget="mail_threads" />
+                        </div>
                     </sheet>
                 </form>
             </field>
