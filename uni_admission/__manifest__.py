@@ -7,14 +7,14 @@
     'summary': "Admissions Process""",
     'author': "olajide",
     'application': True,
-    'depends': ["base",],
+    'depends': ["base", "uni_base", "product"],
     'description': """
         Management and processing of Admission
     """,
 
     'data': [
         'security/ir.model.access.csv',
-        # 'views/admission_register_view.xml',
+        'views/admission_register_view.xml',
         'views/views.xml',
         'menus/uni_menu.xml'
         # 'views/templates.xml',
