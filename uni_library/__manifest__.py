@@ -14,6 +14,7 @@
     'version': '13.0.0.1',
     'depends': ['uni_base', 'mail'],
     'application': 'True',
+    'installable': 'True',
     'data': [
         'security/library_security.xml',
         'security/ir.model.access.csv',

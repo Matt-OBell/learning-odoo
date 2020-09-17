@@ -1,12 +1,9 @@
 from odoo import api, fields, models
 from odoo.exceptions import Warning
-
-
 class Category(models.Model):
     _name = 'category.library_book'
     _description = 'Category'
     name = fields.Char(string='Category')
-
 
 class Book(models.Model):
     def _check_isbn(self):
@@ -23,9 +20,9 @@ class Book(models.Model):
     name = fields.Char(string='Title', required=True)
     image = fields.Binary()
     author_ids = fields.Many2many('res.partner', string='Authors')
-    isbn = fields.Char(string='ISBN', help="Use a valid ISBN-13.")
+    isbn = fields.Char(string='ISBN')
     is_available = fields.Boolean(string='Is Available?')
-    published_date = fields.Date()
+    published_date = fields.Date(string='Published Date')
     publisher_id = fields.Many2one(
         'res.partner', string='Publisher', index=True)
     active = fields.Boolean('Active?', default=True)
@@ -33,6 +30,8 @@ class Book(models.Model):
 
     def button_check_isbn(self):
         for book in self:
+            if book._check_isbn():
+                raise Warning('The ISBN is valid')
             if not book.isbn:
                 raise Warning('Please provide an ISBN for %s' % book.name)
             if book.isbn and not book._check_isbn():

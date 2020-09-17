@@ -18,7 +18,7 @@
                             </group>
                             <group>
                             <field name="published_date"/>
-                            <field name="isbn"/>
+                            <field name="isbn" />
                             <field name="image" widget="image"/>
                             </group>
                         <group>
@@ -37,13 +37,15 @@
             <field name="model">library.book</field>
             <field name="arch" type="xml">
                 <tree>
-                    <field name="name" />
-                    <field name="author_ids" />
-                    <field name="publisher_id" />
-                    <field name="published_date" />
-                    <field name="isbn" />
-                    <field name="active" />
-                    <field name="category" />
+                    <field name="name"/>
+                    <field name="author_ids"/>
+                    <field name="publisher_id"/>
+                    <field name="published_date"/>
+                    <field name="isbn"/>
+                    <field name="image"/>
+                    <field name="category"/>
+                    <field name="is_available"/>
+                    <field name="active"/>
                 </tree>
             </field>
         </record>
