@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <report
+        id="report_hostel_allocation"
+        string="Hostel Allocation"
+        model="student.accomodation"
+        report_type="qweb-pdf"
+        name="uni_accomodation.report_hostel"
+        file="uni_accomodation.report_hostel"/>
+</odoo>

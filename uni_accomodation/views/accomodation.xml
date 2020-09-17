@@ -29,10 +29,10 @@
            <field name="date"/>
            <field name="hostel_name"/>
            <field name="hostel_type"/>
-           <field name="room_selection"/>
+           <field name="room_type"/>
+           <field name="room_id"/>
+           <field name="block_id"/>
            <field name="bunk"/>
-           <field name="hostel_block"/>
-           <field name="room"/>
            <field name="hostel_portal"/>
         </tree>
       </field>
@@ -42,6 +42,7 @@
     <record id="accomodation_form" model="ir.ui.view">
        <field name="name">student.accomodation.form</field>
        <field name="model">student.accomodation</field>
+       <field eval="8" name="priority" />
        <field name="arch" type="xml">
            <form string="Accomodation">
                 <header >
@@ -56,29 +57,27 @@
              <sheet>
                  <field name="image" widget="image" class="oe_avatar"/>
                <div class="oe_title">
+                <field name="name_seq" readonly="1"/>
               <h1>
-                 <field name="matric_no"/>
+                 <field name="matric_no" default_focus="1" placeholder="Matric No"/>
               </h1>
                </div>
             <group>
-               <field name="name_seq" readonly="1"/>
                <field name="name"/>
                <field name="faculty"/>
             </group>
           <group>
-            <group>
-            <field name="academic_session"/>
-            </group>
+             <group>
+             <field name="academic_session"/>
+             <field name="date"/>
+             </group>
             
             <group>
-               <field name="hostel_type"/>
-               <field name="date"/>
-               <field name="hostel_name"/>
-               <field name="room_selection"/>
-            </group>
-            <group>
-               <field name="hostel_block"/> 
-               <field name="room"/>
+                <field name="hostel_type"/>
+               <field name="hostel_name"/>       
+               <field name="room_type"/>
+               <field name="room_id"/>
+               <field name="block_id"/>
                <field name="bunk"/>
                <field name="hostel_portal"/>
             </group>
@@ -108,7 +107,7 @@
 
     <menuitem id="student_accomodation" name="Accomodation" sequence="0"/>
        <menuitem id="student" name="Accomodation" parent="student_accomodation"/>
-         <menuitem id="accomodation_ballot" name="Request" parent="student" action="action_accomodation"/>
+         <menuitem id="accomodation_ballot" name="Allocation" parent="student" action="action_accomodation"/>
 
   </data>
 </odoo>

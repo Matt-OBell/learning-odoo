@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <act_window id="action_library_management" name="Library Management" res_model="library.management" view_mode="tree,form"/>
+    <act_window id="action_library_management" name="Dashboard" res_model="library.management" view_mode="tree,form"/>
     <act_window id="action_library_book" name="Library Books" res_model="library.book" view_mode="tree,form"/>
-    <act_window id="action_library_member" name="Library Members" res_model="library.member" view_mode="tree,form"/>
+    <act_window id="action_library_member" name="Library Card" res_model="library.member" view_mode="tree,form"/>
 
 
-    <menuitem id="library_menu" name="Library Management System" sequence="0"/>
-    <menuitem id="library_management_menu" name="Library Management" parent="library_menu" action="action_library_management"/>
-    <menuitem id="library_book_menu" name="Books" parent="library_management_menu" action="action_library_book"/>
-    <menuitem id="library_member_menu" name="Members" parent="library_management_menu" action="action_library_member"/>
+    <menuitem id="library_menu" name="Library Management System" sequence="1"/>
+    <menuitem id="library_management_menu" name="Dashboard" parent="library_menu" action="action_library_management"/>
+    <menuitem id="library_book_menu" name="Books" parent="library_menu" action="action_library_book"/>
+    <menuitem id="library_member_menu" name="Members" parent="library_menu" action="action_library_member"/>
 
-</odoo> 
+</odoo>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_form_book" model="ir.ui.view">
+            <field name="name">Book Form</field>
+            <field name="model">library.book</field>
+            <field name="arch" type="xml">
+                <form string="Book">
+                    <header groups="base.group_user">
+                        <button string="Check ISBN" name="button_check_isbn" type="object" class="oe_highlight"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="author_ids" widget="many2many_tags"/>
+                                <field name="publisher_id"/>
+                            </group>
+                            <group>
+                            <field name="published_date"/>
+                            <field name="isbn"/>
+                            <field name="image" widget="image"/>
+                            </group>
+                        <group>
+                            <field name="category" widget="many2many_tags" />
+                            <field name="is_available"/>
+                            <field name="active"/>
+                        </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_tree_book" model="ir.ui.view">
+            <field name="name">Book Tree</field>
+            <field name="model">library.book</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="author_ids" />
+                    <field name="publisher_id" />
+                    <field name="published_date" />
+                    <field name="isbn" />
+                    <field name="active" />
+                    <field name="category" />
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -4,3 +4,4 @@ access_hostel_room,access_hostel_room,model_hostel_room,base.group_user,1,1,1,1
 access_hostel_block,access_hostel_block,model_hostel_block,base.group_user,1,1,1,1
 access_hostel_portal,access_hostel_portal,model_hostel_portal,base.group_user,1,1,1,1
 access_hostel_name,access_hostel_name,model_hostel_name,base.group_user,1,1,1,1
+access_hostel_floor,access_hostel_floor,model_hostel_floor,base.group_user,1,1,1,1

@@ -7,6 +7,7 @@ class HostelRoom(models.Model):
     _description = 'Room'
     
     #fields
-    room_no = fields.Char(string="Room No")
-    room_floor = fields.Char(string="Floor")
-    
+    name = fields.Char(string="Room No", required=True)
+    room_floor = fields.Many2one("hostel.floor", string="Floor")
+    hostel_id = fields.Many2one("hostel.name", string="Hostel Name")
+
