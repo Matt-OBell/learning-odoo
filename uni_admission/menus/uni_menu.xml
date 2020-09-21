@@ -8,19 +8,19 @@
                   sequence="10"
                   parent="menu_uni_admission_root"/>
 
-<!--        <menuitem id="menu_admission_register" name="Admission Registers"-->
-<!--                  sequence="10"-->
-<!--                  parent="menu_uni_admission_submenu"-->
-<!--                  action="act_university_uni_admission_register_view"/>-->
+        <menuitem id="menu_admission_register" name="Admission Registers"
+                  sequence="10"
+                  parent="menu_uni_admission_submenu"
+                  action="act_university_uni_admission_register_view"/>
 
-        <menuitem id="menu_admission" name="Applications"/>
+        <menuitem id="menu_admission" name="Applications"
                   sequence="20"
                   parent="menu_uni_admission_submenu"
                   action="act_university_uni_admission_view"/>
 
-        <menuitem id="menu_admission_report_root" name="Reports"
-                  sequence="50"
-                  parent="menu_uni_admission_root"/>
+<!--        <menuitem id="menu_admission_report_root" name="Reports"-->
+<!--                  sequence="50"-->
+<!--                  parent="menu_uni_admission_root"/>-->
 
 <!--        <menuitem id="menu_admission_analysis" name="Admission Report"-->
 <!--                  sequence="30"-->

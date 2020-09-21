@@ -1,4 +1,2 @@
-# -*- coding: utf-8 -*-
-
-# from . import controlle
+# noinspection PyUnresolvedReferences
 from . import models

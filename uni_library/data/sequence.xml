@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+        <record id="library_member_student_sequence" model="ir.sequence">
+            <field name="name">Library Card Sequence</field>
+            <field name="code">library.member.student</field>
+            <field name="prefix">LIB/SD/%(year)s/</field>
+            <field name="padding">5</field>
+            <field name ="number_increment">1</field>
+        </record>
+
+        <record id="library_member_staff_sequence" model="ir.sequence">
+            <field name="name">Library Card Sequence</field>
+            <field name="code">library.member.staff</field>
+            <field name="prefix">LIB/ST/%(year)s/</field>
+            <field name="padding">5</field>
+            <field name ="number_increment">1</field>
+        </record>
+    </data>
+
+</odoo>

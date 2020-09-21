@@ -21,7 +21,7 @@ class UniAdmission(models.Model):
         'res.partner.title', 'Title', states={'done': [('readonly', True)]})
     application_number = fields.Char(
         'Application Number', size=16, copy=False,
-        required=True, readonly=True, store=True,
+        readonly=True, store=True,
         default=lambda self:
         self.env['ir.sequence'].next_by_code('uni.admission'))
     admission_date = fields.Date(
@@ -36,11 +36,11 @@ class UniAdmission(models.Model):
     course_id = fields.Many2one(
         'uni.course', 'Course', required=True,
         states={'done': [('readonly', True)]})
-    batch_id = fields.Many2one(
-        'uni.batch', 'Batch', required=False,
-        states={'done': [('readonly', True)],
-                'submit': [('required', True)],
-                'fees_paid': [('required', True)]})
+    # batch_id = fields.Many2one(
+    #     'uni.batch', 'Batch', required=False,
+    #     states={'done': [('readonly', True)],
+    #             'submit': [('required', True)],
+    #             'fees_paid': [('required', True)]})
     street = fields.Char(
         'Street', size=256, states={'done': [('readonly', True)]})
     street2 = fields.Char(
@@ -105,14 +105,14 @@ class UniAdmission(models.Model):
         #     self.state = 'draft'
 
 
-    def open_student(self):
+    def university_student(self):
         form_view = self.env.ref('university_core.view_uni_student_form')
         tree_view = self.env.ref('university_core.view_uni_student_tree')
         value = {
             'domain': str([('id', '=', self.student_id.id)]),
             'view_type': 'form',
             'view_mode': 'tree, form',
-            'res_model': 'op.student',
+            'res_model': 'uni.student',
             'view_id': False,
             'views': [(form_view and form_view.id or False, 'form'),
                       (tree_view and tree_view.id or False, 'tree')],

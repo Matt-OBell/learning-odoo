@@ -1,32 +1,26 @@
-# -*- coding: utf-8 -*-
+# noinspection PyStatementEffect
 {
-    'name': "University Library",
-
-    'summary': 'A Library Management System for &UNIVERSITY_NAME',
-
-    'description': 'University Library Management System',
-
+    'name': 'University Library Management System',
+    'summary': 'Manage your library efficiently.',
+    'description':
+    """Detailed Feature List Library Card: Librarian can create number of Identity card for Students and Staff. Book 
+    Information: Librarian can create and update and manage book lists and related data(Category, Description, 
+    Author name,). Book Availability: students can see the availability of books Book Issuance: Librarian can grant 
+    new book requests,track due date of issued books(You can set the days to keep the book,you can also set the fine 
+    if the preset days exceeds) Return policy:  and returned books. """,
     'author': "Matt O'Bell Ltd, Peter Ajiboye",
     'website': "http://www.mattobell.net",
-
-    # Categories can be used to filter modules in modules listing
-    # Check https://github.com/odoo/odoo/blob/13.0/odoo/addons/base/data/ir_module_category_data.xml
-    # for the full list
     'category': 'Extra Tools',
     'version': '13.0.0.1',
-
-    # any module necessary for this one to work correctly
-    'depends': ['base', 'uni_base'],
-
-    # always loaded
+    'depends': ['uni_base', 'mail'],
+    'application': 'True',
+    'installable': 'True',
     'data': [
+        'security/library_security.xml',
         'security/ir.model.access.csv',
-        'views/views.xml',
-        # 'views/templates.xml',
+        'views/library_menu.xml',
+        'views/book_view.xml',
+        'views/member_view.xml',
+        'data/sequence.xml',
     ],
-    # only loaded in demonstration mode
-    'demo': [
-        'demo/demo.xml',
-    ],
-    'application': True,
 }
