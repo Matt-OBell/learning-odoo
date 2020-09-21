@@ -16,6 +16,7 @@
         'views/block.xml',
         'views/room.xml',
         'views/portal.xml',
+        "wizard/create_room.xml",
         "views/floor.xml",
         "data/mail.xml",
         "data/sequence.xml",
