@@ -19,6 +19,12 @@ class Member(models.Model):
         track_visibility='onchange'
     )
 
+    def action_done(self):
+       for rec in self:
+           member_type = self.env['library.member'].search([])
+           print("member type...", member_type)
+
+
     def submit(self):
         self.state = 'confirm'
 

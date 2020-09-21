@@ -8,4 +8,8 @@ class HostelFloor(models.Model):
 
     #fields
     name = fields.Char(string="Floor")
-    
+    room_ids = fields.One2many("hostel.room", "room_floor", string="Room")
+
+
+    def action_create_room(self):
+        pass
