@@ -38,7 +38,7 @@
                         <button name="confirm_cancel" string="Cancel" type="object"/>
                         <button name="confirm_to_draft" states="pending,reject,cancel" string="Set to Draft"
                                 type="object"/>
-                        <button name="open_student" states="done" string="Open Student Profile" type="object"/>
+                        <button name="university_student" states="done" string="University Student Profile" type="object"/>
                         <field name="state" widget="statusbar" statusbar_visible="draft,confirm,done"/>
                     </header>
                     <sheet>
@@ -52,32 +52,15 @@
                                 <field name="title" placeholder="Title" style="width: 30%%"/>
                             </h1>
                             <h1>
-                                <field name="name" placeholder="Name" style="padding-right:10px"
-                                       invisible="1"/>
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <field name="first_name" placeholder="First Name" required="1"
-                                                   style="padding-right:10px"
-                                                   attrs="{'readonly': [('state', '=', 'done')]}"/>
-                                        </td>
-                                        <td>
-                                            <field name="middle_name" placeholder="Middle Name"
-                                                   style="padding-right:10px"/>
-                                        </td>
-                                        <td>
-                                            <field name="last_name" placeholder="Last Name" required="1"
-                                                   style="padding-right:10px"/>
-                                        </td>
-                                    </tr>
-                                </table>
+                                <field name="name" placeholder="Full Name" style="padding-right:10px"
+                                            invisible="0"/>
                             </h1>
                         </div>
                         <notebook colspan="4">
                             <page name="admission_detail" string="Admission Detail">
                                 <group col="4" colspan="4">
-<!--                                    <field name="register_id" domain="[('state', 'in', ['application','admission'])]"-->
-<!--                                           widget="selection"/>-->
+                                    <field name="register_id" domain="[('state', 'in', ['application','admission'])]"
+                                           widget="selection"/>
                                     <field name="application_number"/>
                                     <field name="application_date"/>
                                     <field name="admission_date"/>
