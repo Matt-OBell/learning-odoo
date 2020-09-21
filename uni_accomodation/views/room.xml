@@ -8,7 +8,7 @@
       <field name="arch" type="xml">
              <tree string="Room">
                   <field name="name"/>
-                  <field name="room_floor"/>
+                  <field name="room_capacity"/>
              </tree>
       </field>
     </record>
@@ -22,7 +22,7 @@
              <sheet>
              <group>
                <field name="name"/>
-               <field name="room_floor"/>
+               <field name="room_capacity"/>
              </group>
              </sheet>
            </form>
@@ -41,6 +41,6 @@
             </p>
       </field>
     </record>
-     <menuitem id="hostel_room" name="Room" parent="student" action="action_room"/>
+     <menuitem id="hostel_room" name="Room" parent="student" action="action_room"/> 
  </data>
 </odoo>

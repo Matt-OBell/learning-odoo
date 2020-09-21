@@ -8,7 +8,6 @@
       <field name="arch" type="xml">
              <tree string="Floor">
                   <field name="name"/>
-                  <field name="room_ids"/>
              </tree>
       </field>
     </record>
@@ -28,7 +27,6 @@
              </group>
              <notebook>
                  <page string="Rooms" name="room">
-                 <field name="room_ids" readonly="1"/>
                  </page>
              </notebook>
              </sheet>

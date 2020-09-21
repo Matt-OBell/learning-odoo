@@ -8,7 +8,6 @@
       <field name="arch" type="xml">
              <tree string="Block">
                   <field name="name"/>
-                  <field name="block_id"/>
                   <!-- <field name="hostel_id"/> -->
              </tree>
       </field>
@@ -23,7 +22,6 @@
              <sheet>
               <group>
                      <field name="name"/>
-                     <field name="block_id"/>
              </group>
              </sheet>
            </form>
@@ -42,7 +40,7 @@
             </p>
       </field>
     </record>
-             <menuitem id="hostel_block" name="Block" parent="student" action="action_block"/>
+             <!-- <menuitem id="hostel_block" name="Block" parent="student" action="action_block"/> -->
 
  </data>
 </odoo>

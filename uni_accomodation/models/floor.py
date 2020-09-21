@@ -8,8 +8,9 @@ class HostelFloor(models.Model):
 
     #fields
     name = fields.Char(string="Floor")
-    room_ids = fields.One2many("hostel.room", "room_floor", string="Room")
+    hostel_id = fields.Many2one('hostel.name', string="Floor")
+
 
 
     def action_create_room(self):
-        pass
+        self.env["hostel.room"].create({"name":"", "hostel_id":"", "room_capacity":""})
