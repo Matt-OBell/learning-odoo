@@ -26,6 +26,7 @@ class Book(models.Model):
     publisher_id = fields.Many2one(
         'res.partner', string='Publisher', index=True)
     active = fields.Boolean('Active?', default=True)
+    book_item = fields.Integer(string='Book Item') 
     category = fields.Many2many('category.library_book')
 
     def button_check_isbn(self):

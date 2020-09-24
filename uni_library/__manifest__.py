@@ -12,7 +12,7 @@
     'website': "http://www.mattobell.net",
     'category': 'Extra Tools',
     'version': '13.0.0.1',
-    'depends': ['uni_base', 'mail'],
+    'depends': ['uni_base', 'mail', 'stock'],
     'application': 'True',
     'installable': 'True',
     'data': [
@@ -21,6 +21,7 @@
         'views/library_menu.xml',
         'views/book_view.xml',
         'views/member_view.xml',
+        'views/product_view.xml',
         'data/sequence.xml',
     ],
 }

@@ -3,7 +3,7 @@
 
     <act_window id="action_library_management" name="Dashboard" res_model="library.management" view_mode="tree,form"/>
     <act_window id="action_library_book" name="Library Books" res_model="library.book" view_mode="tree,form"/>
-    <act_window id="action_library_member" name="Library Card" res_model="library.member" view_mode="tree,form"/>
+    <act_window id="action_library_member" name="Library Members" res_model="library.member" view_mode="tree,form"/>
 
 
     <menuitem id="library_menu" name="Library Management System" sequence="0"/>
