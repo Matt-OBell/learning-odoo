@@ -6,4 +6,4 @@ class CreateRoom(models.TransientModel):
     _description = "Wizard: Room Creating Portal"
 
 
-    room_id = fields.Many2one('hostel.floor', string="Room No", required=True)
+    room_id = fields.Many2one('hostel.room', string="Room No", required=True)

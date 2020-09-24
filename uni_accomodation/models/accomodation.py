@@ -82,3 +82,21 @@ class StudentAccomodation(models.Model):
 
     def reject_accomodation(self):
         self.state = 'draft'
+
+    def print_allocation(self):
+        return self.env.ref("uni_accomodation.report_hostel_allocation").report_action(self)
+
+    # def onchange(self, cr, uid, ids, matric_no, name, image, faculty, context=None):
+    #     vals = {}
+    #     _matching_ids = self.search(cr, uid, [('matric_no', '=', matric_no)], context=context)
+    #     if _matching_ids:
+    #        _matching_obj = self.browse(cr, uid, _matching_ids[0], context=context)
+    #        vals = {
+    #             'value': { 
+    #             'name': _matching_obj.name,
+    #             'faculty': _matching_obj.faculty,
+    #             'price': _matching_obj.image,
+    # }
+    #     } 
+    #     return vals
+     
