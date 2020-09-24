@@ -34,6 +34,7 @@
            <field name="block_id"/>
            <field name="bunk"/>
            <field name="hostel_portal"/>
+           <field name="floor_id"/>
         </tree>
       </field>
     </record>
@@ -47,19 +48,22 @@
            <form string="Accomodation">
                 <header >
                    <button name="submit_accomodation" type="object" class="oe_highlight" states="draft" string="Submit"/>
+                   <button name="print_allocation" type="object" string="Print" class="oe_highlight"/>
                    <!-- action, object-->
-                       <button name="validate_accomodation" type="object" class="oe_highlight" states="submit" string="Validate" />
-                        <button name="reject_accomodation" type="object" states="submit" string="Reject" />
-                        <button name="approve_accomodation" type="object" class="oe_highlight" states="validate" string="Allocated" />
-                        <button name="reject_accomodation2" type="object" class="oe_highlight" states="validate" string="Reject" />
+                        <button name="validate_accomodation" type="object" class="oe_highlight" states="submit" string="Validate"/>
+                        <button name="reject_accomodation" type="object" states="submit" string="Reject"/>
+                        <button name="approve_accomodation" type="object" class="oe_highlight" states="validate" string="Allocated"/>
+                        <button name="reject_accomodation2" type="object" class="oe_highlight" states="validate" string="Reject"/>
                         <field name="state" widget="statusbar" statusbar_visible="draft,submit,allocated"/>
                 </header>
              <sheet>
-                 <field name="image" widget="image" class="oe_avatar"/>
+                 <field name="image" widget="image" class="oe_avatar"/> 
                <div class="oe_title">
                 <field name="name_seq" readonly="1"/>
               <h1>
-                 <field name="matric_no" default_focus="1" placeholder="Matric No"/>
+                 <!-- <field name="matric_no" default_focus="1" placeholder="Matric No" widget="selection"
+                 onchange="name_change(matric_no)"/> -->
+                 <field name="matric_no" default_focus="1" placeholder="Matric No" widget="selection"/>
               </h1>
                </div>
             <group>
@@ -77,6 +81,7 @@
                <field name="hostel_name"/>       
                <field name="room_type"/>
                <field name="room_id"/>
+               <field name="floor_id"/>
                <field name="block_id"/>
                <field name="bunk"/>
                <field name="hostel_portal"/>
