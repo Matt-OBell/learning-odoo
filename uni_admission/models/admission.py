@@ -2,21 +2,23 @@ from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError, UserError
 from datetime import datetime
 
+
 class UniAdmission(models.Model):
     _name = "uni.admission"
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _rec_name = "application_number"
     _description = "Admission"
 
     name = fields.Char(
         'Name', size=128, required=True, translate=True)
-    first_name = fields.Char(
-        'First Name', size=128, required=True, translate=True)
-    middle_name = fields.Char(
-        'Middle Name', size=128, translate=True,
-        states={'done': [('readonly', True)]})
-    last_name = fields.Char(
-        'Last Name', size=128, required=True, translate=True,
-        states={'done': [('readonly', True)]})
+    # first_name = fields.Char(
+    #     'First Name', size=128, required=True, translate=True)
+    # middle_name = fields.Char(
+    #     'Middle Name', size=128, translate=True,
+    #     states={'done': [('readonly', True)]})
+    # last_name = fields.Char(
+    #     'Last Name', size=128, required=True, translate=True,
+    #     states={'done': [('readonly', True)]})
     title = fields.Many2one(
         'res.partner.title', 'Title', states={'done': [('readonly', True)]})
     application_number = fields.Char(
@@ -95,15 +97,164 @@ class UniAdmission(models.Model):
     # fees_term_id = fields.Many2one('uni.fees.terms', 'Fees Term')
     active = fields.Boolean(default=True)
 
-        # def confirm_rejected(self):
-        #     self.state = 'reject'
-        #
-        # def confirm_pending(self):
-        #     self.state = 'pending'
-        #
-        # def confirm_to_draft(self):
-        #     self.state = 'draft'
+    # _sql_constraints = [
+    #     ('unique_application_number',
+    #      'unique(application_number)',
+    #      'Application Number must be unique per Application!'),
+    # ]
 
+    # def confirm_rejected(self):
+    #     self.state = 'reject'
+    #
+    # def confirm_pending(self):
+    #     self.state = 'pending'
+    #
+    # def confirm_to_draft(self):
+    #     self.state = 'draft'
+
+    @api.onchange('student_id', 'is_student')
+    def onchange_student(self):
+        if self.is_student and self.student_id:
+            sd = self.student_id
+            self.title = sd.title and sd.title.id or False
+            self.first_name = sd.first_name
+            self.middle_name = sd.middle_name
+            self.last_name = sd.last_name
+            self.birth_date = sd.birth_date
+            self.gender = sd.gender
+            self.image_1920 = sd.image_1920 or False
+            self.street = sd.street or False
+            self.street2 = sd.street2 or False
+            self.phone = sd.phone or False
+            self.mobile = sd.mobile or False
+            self.email = sd.email or False
+            self.zip = sd.zip or False
+            self.city = sd.city or False
+            self.country_id = sd.country_id and sd.country_id.id or False
+            self.state_id = sd.state_id and sd.state_id.id or False
+            self.partner_id = sd.partner_id and sd.partner_id.id or False
+        else:
+            self.birth_date = ''
+            self.gender = ''
+            self.image_1920 = False
+            self.street = ''
+            self.street2 = ''
+            self.phone = ''
+            self.mobile = ''
+            self.zip = ''
+            self.city = ''
+            self.country_id = False
+            self.state_id = False
+            self.partner_id = False
+
+    def submit_form(self):
+        self.state = 'submit'
+
+    def admission_confirm(self):
+        self.state = 'admission'
+
+    def confirm_in_progress(self):
+        for record in self:
+            record.state = 'confirm'
+
+    def get_student_vals(self):
+        for student in self:
+            student_user = self.env['res.users'].create({
+                'name': student.name,
+                'login': student.email,
+                'image_1920': self.image or False,
+                'is_student': True,
+                'company_id': self.env.ref('base.main_company').id,
+                'groups_id': [
+                    (6, 0,
+                     [self.env.ref('base.group_portal').id])]
+            })
+            details = {
+                'phone': student.phone,
+                'mobile': student.mobile,
+                'email': student.email,
+                'street': student.street,
+                'street2': student.street2,
+                'city': student.city,
+                'country_id':
+                    student.country_id and student.country_id.id or False,
+                'state_id': student.state_id and student.state_id.id or False,
+                'image_1920': student.image,
+                'zip': student.zip,
+            }
+            student_user.partner_id.write(details)
+            details.update({
+                'title': student.title and student.title.id or False,
+                'first_name': student.first_name,
+                'middle_name': student.middle_name,
+                'last_name': student.last_name,
+                'birth_date': student.birth_date,
+                'gender': student.gender,
+                'image_1920': student.image or False,
+                'course_detail_ids': [[0, False, {
+                    'course_id':
+                        student.course_id and student.course_id.id or False,
+                }]],
+                'user_id': student_user.id,
+                'partner_id': student_user.partner_id.id,
+            })
+            return details
+
+    def enroll_student(self):
+        for record in self:
+            if record.register_id.max_count:
+                total_admission = self.env['uni.admission'].search_count(
+                    [('register_id', '=', record.register_id.id),
+                     ('state', '=', 'done')])
+                if not total_admission < record.register_id.max_count:
+                    msg = 'Max Admission In Admission Register :- (%s)' % (
+                        record.register_id.max_count)
+                    raise ValidationError(_(msg))
+                if not record.student_id:
+                    vals = record.get_student_vals()
+                    record.partner_id = vals.get('partner_id')
+                    record.student_id = student_id = self.env[
+                    'uni.student'].create(vals).id
+            else:
+                student_id = record.student_id.id
+                record.student_id.write({
+                    'course_detail_ids': [[0, False, {
+                        'course_id':
+                            record.course_id and record.course_id.id or False,
+                    }]],
+                })
+            if record.fees_term_id:
+                val = []
+                product_id = record.register_id.product_id.id
+                for line in record.fees_term_id.line_ids:
+                    no_days = line.due_days
+                    per_amount = line.value
+                    amount = (per_amount * record.fees) / 100
+                    date = (datetime.today() + relativedelta(
+                        days=no_days)).date()
+                    dict_val = {
+                        'fees_line_id': line.id,
+                        'amount': amount,
+                        'fees_factor': per_amount,
+                        'date': date,
+                        'product_id': product_id,
+                        'state': 'draft',
+                    }
+            record.write({
+                'nbr': 1,
+                'state': 'done',
+                'admission_date': fields.Date.today(),
+                'student_id': student_id,
+                'is_student': True,
+            })
+            reg_id = self.env['uni.subject.registration'].create({
+                'student_id': student_id,
+                'course_id': record.course_id.id,
+                'min_unit_load': record.course_id.min_unit_load or 0.0,
+                'max_unit_load': record.course_id.max_unit_load or 0.0,
+                'state': 'draft',
+            })
+            reg_id.get_subjects()
 
     def university_student(self):
         form_view = self.env.ref('university_core.view_uni_student_form')

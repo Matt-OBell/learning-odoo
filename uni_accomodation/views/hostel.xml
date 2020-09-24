@@ -8,7 +8,6 @@
       <field name="arch" type="xml">
              <tree string="Hostel">
                   <field name="name"/>
-                  <field name="hostel_no"/>
                   <field name="room"/>
                   <field name="block"/>
              </tree>
@@ -26,7 +25,6 @@
                   <field name="name" default_focus="1" placeholder="Hostel Name"/>
                  </h2>
              <group>
-                  <field name="hostel_no"/>
                   <field name="room"/>
                   <field name="block"/>
              </group>

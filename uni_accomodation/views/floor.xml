@@ -18,10 +18,17 @@
          <field name="model">hostel.floor</field>
       <field name="arch" type="xml">
            <form string="Floor">
+              <header>
+              <button name="action_create_room" string="Create Room" type="object" class="oe_highlight"/>
+              </header>
              <sheet>
              <group>
                   <field name="name"/>
              </group>
+             <notebook>
+                 <page string="Rooms" name="room">
+                 </page>
+             </notebook>
              </sheet>
            </form>
       </field>
