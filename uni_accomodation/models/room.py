@@ -8,6 +8,10 @@ class HostelRoom(models.Model):
     
     #fields
     name = fields.Char(string="Room No", required=True)
-    room_floor = fields.Many2one("hostel.floor", string="Floor")
     hostel_id = fields.Many2one("hostel.name", string="Hostel Name")
-
+    floor_id = fields.Many2one("hostel.floor", string="Floor")
+    room_capacity = fields.Selection([
+        ("2", "2 Man Room"),
+        ("4", "4 Man Room"),
+        ("8", "8 Man room"),
+        ], string="Room Capacity")

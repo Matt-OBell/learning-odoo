@@ -2,6 +2,7 @@ from datetime import date
 from odoo import models, fields, api
 
 
+# noinspection SpellCheckingInspection,PyUnusedLocal,PyUnusedLocal
 class Member(models.Model):
     _name = 'library.member'
     _description = 'Members'
@@ -20,10 +21,9 @@ class Member(models.Model):
     )
 
     def action_done(self):
-       for rec in self:
-           member_type = self.env['library.member'].search([])
-           print("member type...", member_type)
-
+        for rec in self:
+            member_type = self.env['library.member'].search([])
+            print("member type...", member_type)
 
     def submit(self):
         self.state = 'confirm'

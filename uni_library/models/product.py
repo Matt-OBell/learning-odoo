@@ -1,11 +1,8 @@
 from odoo import api, fields, models
 from odoo.exceptions import Warning
-class Category(models.Model):
-    _name = 'category.library_book'
-    _description = 'Category'
-    name = fields.Char(string='Category')
 
-class Book(models.Model):
+
+class ProductTemplate(models.Model):
     def _check_isbn(self):
         self.ensure_one()
         digits = [int(x) for x in self.isbn if x.isdigit()]
@@ -15,18 +12,15 @@ class Book(models.Model):
             remain = sum(terms) % 10
             check = 10 - remain if remain != 0 else 0
             return digits[-1] == check
-    _name = 'library.book'
-    _description = 'Books'
-    name = fields.Char(string='Title', required=True)
-    image = fields.Binary()
+    _inherit = 'product.template'
+    _description = 'Category'
+    is_a_book = fields.Boolean(string="Is A Book")
     author_ids = fields.Many2many('res.partner', string='Authors')
     isbn = fields.Char(string='ISBN')
-    is_available = fields.Boolean(string='Is Available?')
     published_date = fields.Date(string='Published Date')
-    publisher_id = fields.Many2one(
-        'res.partner', string='Publisher', index=True)
+    publisher_id = fields.Many2one('res.partner', string='Publisher', index=True)
+    is_available = fields.Boolean(string='Is Available?')
     active = fields.Boolean('Active?', default=True)
-    category = fields.Many2many('category.library_book')
 
     def button_check_isbn(self):
         for book in self:

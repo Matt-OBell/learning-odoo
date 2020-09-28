@@ -46,8 +46,16 @@
                                          <p style="text.align:left:padding.left:10px;"><span t-field="o.room_id"/></p>
                                  </td>
                             </tr>
-
-                            <tr>
+                              <tr>
+                                 <td>
+                                         <p style="text.align:right;"><strong>Floor:</strong></p>
+                                 </td>
+                                 <td>
+                                         <p style="text.align:left:padding.left:10px;"><span t-field="o.floor_id"/></p>
+                                          <!-- <p style="text.align:left:padding.left:10px;"><span t-field="o.room_id.floor_id"/></p> -->
+                                 </td>
+                            </tr>
+                             <tr>
                                  <td>
                                          <p style="text.align:right;"><strong>Block No:</strong></p>
                                  </td>
@@ -55,16 +63,6 @@
                                          <p style="text.align:left:padding.left:10px;"><span t-field="o.block_id"/></p>
                                  </td>
                             </tr>
-
-                            <tr>
-                                 <td>
-                                         <p style="text.align:right;"><strong>Floor:</strong></p>
-                                 </td>
-                                 <td>
-                                         <p style="text.align:left:padding.left:10px;"><span t-field="o.room_id.room_floor"/></p>
-                                 </td>
-                            </tr>
-
                             <tr>
                                  <td>
                                          <p style="text.align:right;"><strong>Bunk:</strong></p>

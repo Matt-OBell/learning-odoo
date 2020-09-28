@@ -8,6 +8,6 @@ class HostelName(models.Model):
     
     #fields
     name = fields.Char(string="Hostel Name",required=True)
-    hostel_no = fields.Integer(string='Hostel No')
     room = fields.One2many("hostel.room", "hostel_id", string="Room")
     block = fields.One2many("hostel.block", "hostel_id", string="Block")
+    floor = fields.One2many("hostel.floor", "hostel_id", string="Floor")
