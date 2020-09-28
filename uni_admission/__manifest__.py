@@ -16,7 +16,9 @@
         'security/ir.model.access.csv',
         'views/admission_register_view.xml',
         'views/views.xml',
-        'menus/uni_menu.xml'
+        'menus/uni_menu.xml',
+        'report/report_admission_analysis.xml',
+        # 'report/report_menu.xml',
         # 'views/templates.xml',
     ],
 }

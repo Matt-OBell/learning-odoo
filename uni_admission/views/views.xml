@@ -12,7 +12,7 @@
                     <field name="name"/>
                     <field name="admission_date"/>
                     <field name="application_date"/>
-                    <field name="course_id"/>
+                    <field name="program_id"/>
 <!--                    <field name="batch_id" invisible="1"/>-->
                     <field name="state"/>
                 </tree>
@@ -64,17 +64,17 @@
                                     <field name="application_number"/>
                                     <field name="application_date"/>
                                     <field name="admission_date"/>
-                                    <field name="course_id"/>
+                                    <field name="program_id"/>
 <!--                                    <field name="batch_id"-->
 <!--                                           context="{'course_id': course_id,'get_parent_batch':1}"/>-->
-                                    <field name="fees" attrs="{'required': [('state','not in', ['draft', 'submit'])]}"/>
+<!--                                    <field name="fees" attrs="{'required': [('state','not in', ['draft', 'submit'])]}"/>-->
                                     <field name="due_date"/>
 <!--                                    <field name="fees_term_id" required="1"-->
 <!--                                           attrs="{'readonly': [('state','not in', ['draft', 'submit', 'confirm'])]}"/>-->
-                                    <field name="is_student"/>
-                                    <field name="partner_id"/>
-                                    <field name="student_id" placeholder="Student" options="{'no_create_edit': True}"
-                                           attrs="{'required':[('is_student','=',True)],'invisible': [('is_student','=', False)]}"/>
+<!--                                    <field name="is_student"/>-->
+                                    <field name="partner_id" string="Mode of Admission"/>
+<!--                                    <field name="student_id" placeholder="Student" options="{'no_create_edit': True}"-->
+<!--                                           attrs="{'required':[('is_student','=',True)],'invisible': [('is_student','=', False)]}"/>-->
                                 </group>
                             </page>
                             <page name="educational_detail" string="Educational Detail">
@@ -82,6 +82,18 @@
                                     <field name="prev_institute_id"/>
                                     <field name="prev_course_id"/>
                                     <field name="prev_result"/>
+                                </group>
+                                <group col="4" colspan="4">
+                                    <field name="prev_institute_id" string="Secondary School Attended"/>
+                                    <field name="admission_date" string="Start Date"/>
+                                    <field name="due_date" strimg="End Date"/>
+                                    <field name="prev_result" string="Qualification Obtained"/>
+                                </group>
+                                <group col="4" colspan="4">
+                                    <field name="prev_institute_id" string="Primary School Attended"/>
+                                    <field name="admission_date" string="Start Date"/>
+                                    <field name="due_date" strimg="End Date"/>
+                                    <field name="prev_result" string="Qualification Obtained"/>
                                 </group>
                             </page>
                             <page name="personal_detail" string="Personal Detail">

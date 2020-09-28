@@ -35,8 +35,8 @@ class UniAdmission(models.Model):
         default=lambda self: fields.Datetime.now())
     birth_date = fields.Date(
         'Birth Date', required=True, states={'done': [('readonly', True)]})
-    course_id = fields.Many2one(
-        'uni.course', 'Course', required=True,
+    program_id = fields.Many2one(
+        'uni.program', 'Program', required=True,
         states={'done': [('readonly', True)]})
     # batch_id = fields.Many2one(
     #     'uni.batch', 'Batch', required=False,
@@ -87,65 +87,50 @@ class UniAdmission(models.Model):
         required=True,
         states={'done': [('readonly', True)]})
     student_id = fields.Many2one(
-        'uni.student', 'Student', states={'done': [('readonly', True)]})
+        'res.student', 'Student', states={'done': [('readonly', True)]})
     nbr = fields.Integer('No of Admission', readonly=True)
     register_id = fields.Many2one(
         'uni.admission.register', 'Admission Register', required=True,
         states={'done': [('readonly', True)]})
     partner_id = fields.Many2one('res.partner', 'Partner')
-    is_student = fields.Boolean('Is Already Student')
-    # fees_term_id = fields.Many2one('uni.fees.terms', 'Fees Term')
+    # is_student = fields.Boolean('Is Already Student')
     active = fields.Boolean(default=True)
 
-    # _sql_constraints = [
-    #     ('unique_application_number',
-    #      'unique(application_number)',
-    #      'Application Number must be unique per Application!'),
-    # ]
 
-    # def confirm_rejected(self):
-    #     self.state = 'reject'
-    #
-    # def confirm_pending(self):
-    #     self.state = 'pending'
-    #
-    # def confirm_to_draft(self):
-    #     self.state = 'draft'
-
-    @api.onchange('student_id', 'is_student')
-    def onchange_student(self):
-        if self.is_student and self.student_id:
-            sd = self.student_id
-            self.title = sd.title and sd.title.id or False
-            self.first_name = sd.first_name
-            self.middle_name = sd.middle_name
-            self.last_name = sd.last_name
-            self.birth_date = sd.birth_date
-            self.gender = sd.gender
-            self.image_1920 = sd.image_1920 or False
-            self.street = sd.street or False
-            self.street2 = sd.street2 or False
-            self.phone = sd.phone or False
-            self.mobile = sd.mobile or False
-            self.email = sd.email or False
-            self.zip = sd.zip or False
-            self.city = sd.city or False
-            self.country_id = sd.country_id and sd.country_id.id or False
-            self.state_id = sd.state_id and sd.state_id.id or False
-            self.partner_id = sd.partner_id and sd.partner_id.id or False
-        else:
-            self.birth_date = ''
-            self.gender = ''
-            self.image_1920 = False
-            self.street = ''
-            self.street2 = ''
-            self.phone = ''
-            self.mobile = ''
-            self.zip = ''
-            self.city = ''
-            self.country_id = False
-            self.state_id = False
-            self.partner_id = False
+    # @api.onchange('student_id', 'is_student')
+    # def onchange_student(self):
+    #     if self.is_student and self.student_id:
+    #         sd = self.student_id
+    #         self.title = sd.title and sd.title.id or False
+    #         self.name = sd.full_name
+    #         # self.middle_name = sd.middle_name
+    #         # self.last_name = sd.last_name
+    #         self.birth_date = sd.birth_date
+    #         self.gender = sd.gender
+    #         self.image_1920 = sd.image_1920 or False
+    #         self.street = sd.street or False
+    #         self.street2 = sd.street2 or False
+    #         self.phone = sd.phone or False
+    #         self.mobile = sd.mobile or False
+    #         self.email = sd.email or False
+    #         self.zip = sd.zip or False
+    #         self.city = sd.city or False
+    #         self.country_id = sd.country_id and sd.country_id.id or False
+    #         self.state_id = sd.state_id and sd.state_id.id or False
+    #         self.partner_id = sd.partner_id and sd.partner_id.id or False
+    #     else:
+    #         self.birth_date = ''
+    #         self.gender = ''
+    #         self.image_1920 = False
+    #         self.street = ''
+    #         self.street2 = ''
+    #         self.phone = ''
+    #         self.mobile = ''
+    #         self.zip = ''
+    #         self.city = ''
+    #         self.country_id = False
+    #         self.state_id = False
+    #         self.partner_id = False
 
     def submit_form(self):
         self.state = 'submit'
@@ -163,7 +148,7 @@ class UniAdmission(models.Model):
                 'name': student.name,
                 'login': student.email,
                 'image_1920': self.image or False,
-                'is_student': True,
+                # 'is_student': True,
                 'company_id': self.env.ref('base.main_company').id,
                 'groups_id': [
                     (6, 0,
@@ -185,15 +170,16 @@ class UniAdmission(models.Model):
             student_user.partner_id.write(details)
             details.update({
                 'title': student.title and student.title.id or False,
-                'first_name': student.first_name,
-                'middle_name': student.middle_name,
-                'last_name': student.last_name,
+                'name': student.name,
+                # 'first_name': student.first_name,
+                # 'middle_name': student.middle_name,
+                # 'last_name': student.last_name,
                 'birth_date': student.birth_date,
                 'gender': student.gender,
                 'image_1920': student.image or False,
                 'course_detail_ids': [[0, False, {
-                    'course_id':
-                        student.course_id and student.course_id.id or False,
+                    'program_id':
+                        student.program_id and student.program_id.id or False,
                 }]],
                 'user_id': student_user.id,
                 'partner_id': student_user.partner_id.id,
@@ -213,14 +199,13 @@ class UniAdmission(models.Model):
                 if not record.student_id:
                     vals = record.get_student_vals()
                     record.partner_id = vals.get('partner_id')
-                    record.student_id = student_id = self.env[
-                    'uni.student'].create(vals).id
+                    record.student_id = student_id = self.env['res.student'].create(vals).id
             else:
                 student_id = record.student_id.id
                 record.student_id.write({
                     'course_detail_ids': [[0, False, {
-                        'course_id':
-                            record.course_id and record.course_id.id or False,
+                        'program_id':
+                            record.program_id and record.program_id.id or False,
                     }]],
                 })
             if record.fees_term_id:
@@ -245,7 +230,7 @@ class UniAdmission(models.Model):
                 'state': 'done',
                 'admission_date': fields.Date.today(),
                 'student_id': student_id,
-                'is_student': True,
+                # 'is_student': True,
             })
             reg_id = self.env['uni.subject.registration'].create({
                 'student_id': student_id,
@@ -263,7 +248,7 @@ class UniAdmission(models.Model):
             'domain': str([('id', '=', self.student_id.id)]),
             'view_type': 'form',
             'view_mode': 'tree, form',
-            'res_model': 'uni.student',
+            'res_model': 'res.student',
             'view_id': False,
             'views': [(form_view and form_view.id or False, 'form'),
                       (tree_view and tree_view.id or False, 'tree')],
