@@ -1,8 +1,8 @@
-# noinspection PyStatementEffect
+# noinspection PyStatementEffect,SpellCheckingInspection
 {
     'name': 'University Library Management System',
     'summary': 'Manage your library efficiently.',
-    'description':"""Detailed Feature List
+    'description': """Detailed Feature List
     Library Card: The system can create number of Identity card for Students and Staff. [done]
     Book Information: The system can create and update and manage book lists and related data [done]
     Book checkout: Decreases the number of book items when a checkout has been made
@@ -19,11 +19,10 @@
     'application': 'True',
     'installable': 'True',
     'data': [
-        'security/library_security.xml',
         'security/ir.model.access.csv',
         'views/library_menu.xml',
-        'views/member_view.xml',
         'views/product_view.xml',
+        'views/res_library_member_view.xml',
         'data/sequence.xml',
     ],
 }
