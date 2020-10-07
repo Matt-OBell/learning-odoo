@@ -18,14 +18,13 @@
                   parent="menu_uni_admission_submenu"
                   action="act_university_uni_admission_view"/>
 
-<!--        <menuitem id="menu_admission_report_root" name="Reports"-->
-<!--                  sequence="50"-->
-<!--                  parent="menu_uni_admission_root"/>-->
+        <menuitem id="menu_admission_report_root" name="Reports"
+                  sequence="50"
+                  parent="menu_uni_admission_root"/>
 
-<!--        <menuitem id="menu_admission_analysis" name="Admission Report"-->
-<!--                  sequence="30"-->
-<!--                  parent="menu_admission_report_root"-->
-<!--                  action="admission_analysis_act"/>-->
+        <menuitem id="menu_admission_analysis" name="Admission Report"
+                  sequence="40"
+                  parent="menu_admission_report_root"/>
 
     </data>
 </odoo>

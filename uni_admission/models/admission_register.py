@@ -19,8 +19,11 @@ class UniAdmissionRegister(models.Model):
         'End Date', required=True, readonly=True,
         default=(fields.Date.today() + relativedelta(days=30)),
         states={'draft': [('readonly', False)]})
-    course_id = fields.Many2one(
-        'uni.course', 'Course', required=True, readonly=True,
+    session_id = fields.Many2one(
+        'uni.session', 'session', required=True, readonly=True,
+        states={'draft': [('readonly', False)]}, track_visibility='onchange')
+    program_id = fields.Many2one(
+        'uni.program', 'Program', required=True, readonly=True,
         states={'draft': [('readonly', False)]}, track_visibility='onchange')
     min_count = fields.Integer(
         'Minimum No. of Admission', readonly=True,

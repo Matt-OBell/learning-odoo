@@ -1,5 +1,4 @@
 # noinspection PyUnresolvedReferences
-from . import library_management
-from . import library_book
-from . import library_member
+from . import library
 from . import product
+from . import res_library_member

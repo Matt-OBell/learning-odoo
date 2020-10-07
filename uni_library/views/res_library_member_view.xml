@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_form_res_library" model="ir.ui.view">
+        <field name="name">Res Library Member Form</field>
+        <field name="model">res.library.member</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="student_id"/>
+                            <field name="library_id"/>
+                        </group>
+                        <group>
+                            <field name="date_of_membership"/>
+                            <field name="total_books_checkout"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_tree_res_library" model="ir.ui.view">
+        <field name="name">Res Library Member Tree</field>
+        <field name="model">res.library.member</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="student_id"/>
+                <field name="library_id"/>
+                <field name="date_of_membership"/>
+                <field name="total_books_checkout"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <act_window id="action_res_library_member" name="Library Members" res_model="res.library.member"
+                view_mode="tree,form"/>
+
+    <menuitem id="res_library_member_menu" name="Members" parent="library_menu" action="action_res_library_member"/>
+
+</odoo>
