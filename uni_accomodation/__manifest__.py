@@ -8,7 +8,7 @@
     'sequence': 3,
     'description': '',
     'category': 'Education',
-    'depends' : ['sale', "uni_base",],
+    'depends' : ['sale', "uni_base", "website",],
     'data': [
         'security/ir.model.access.csv',
         'views/accomodation.xml',
@@ -22,6 +22,7 @@
         "data/sequence.xml",
         "report/hostel_allocation.xml",
         "report/report.xml",
+        "views/website_form.xml",
     ],
     'demo': [],
     'installable': True,

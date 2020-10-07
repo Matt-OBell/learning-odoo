@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="menu_accomodation_form" model="website.menu">
+         <field name="name">Accomodation</field>
+         <field name="url">/uni_accomodation/accomodation</field>
+         <field name="parent_id" ref="website.main_menu"/>
+         <field name="sequence">10</field>
+    </record>
+
+   <template id="accomodation">
+      <t t-call="website.layout">
+        <div id="wrap">
+           <div class="oe_structure">
+               <div class="container">
+                   <form role="form" action="/webaccomodation" method="POST">
+                         <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                         <div class="form-group">
+                             <label for="matric_no" class="control-label">Matric No</label>
+                             <input type="text" name="matric_no" t-att-value="matric_no" id="matric_no"
+                                    class="form_control" placeholder="e.g. 12080401AD" required="required"/>
+                         </div>
+
+                         <div class="form-group">
+                             <label for="Name"/>
+                             <input type="text" name="name" t-att-value="name" id="name" class="form_control"/>
+                         </div>
+                        <!-- <div class="form-group">
+                         <select>
+                         <option>
+                         Science
+                         Medical 
+                         Business Adminstrator
+                         </option>
+                         </select> -->
+                                         <div class="clearfix_on_login_button">
+                                             <button type="submit" class="btn btn-primary pull-left">Submit</button>
+                                         </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+      </t>
+    </template>
+      
+    <!-- <record id="allocation_submission" model="website.page">
+         <field name="name">Allocation Submitted</field>
+         <field name="type">qweb</field>
+         <field name="url">accomodation_submission</field>
+         <field name="website_published">True</field>
+         <field name="key">uni_accomodation.allocation_submission</field>
+         <field name="arch"> type="xml">
+              <t name="Submitted" t:name="uni_accomodation.allocation">
+                <t t-call="website.layout">
+                  <div id="wrap">
+                    <div class="container">
+                         <h1>Submitted</h1>
+                         <div class="row">
+                             <div class="col-lg-8">
+                                 <div class="alert alert-submitted" role="status">
+                                     Your alloctaion has been submittted  
+                                 </div>
+                                  <p>
+                                     You will be contacted if your allocation is successful
+                                 </p>   
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                </t>
+             </t>
+        </field>
+    </record>    -->
+ </data>
+</odoo>

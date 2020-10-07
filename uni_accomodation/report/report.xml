@@ -7,4 +7,12 @@
         report_type="qweb-pdf"
         name="uni_accomodation.report_hostel"
         file="uni_accomodation.report_hostel"/>
+
+    <report
+        id="report_hostel_allocation_xlx"
+        string="Hostel Allocation Excel"
+        model="student.accomodation"
+        report_type="xlsx"
+        name="uni_accomodation.report_hostel_xls"
+        file="uni_accomodation.report_hostel_xls"/>
 </odoo>
