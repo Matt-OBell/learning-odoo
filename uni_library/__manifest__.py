@@ -1,6 +1,6 @@
 # noinspection PyStatementEffect,SpellCheckingInspection
 {
-    'name': 'University Library Management System',
+    'name': 'Library',
     'summary': 'Manage your library efficiently.',
     'description': """Detailed Feature List
     Library Card: The system can create number of Identity card for Students and Staff. [done]
