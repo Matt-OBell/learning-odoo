@@ -14,13 +14,19 @@ class ProductTemplate(models.Model):
             return digits[-1] == check
     _inherit = 'product.template'
     _description = 'Category'
-    is_a_book = fields.Boolean(string="Is A Book")
+    active = fields.Boolean('Active?', default=True)
+    additional_authors = fields.Many2one('res.partner', string='Additional Authors')
     author_ids = fields.Many2many('res.partner', string='Authors')
+    book_number = fields.Char(string='Book Number')
+    edition = fields.Char(string='Edition')
+    is_a_book = fields.Boolean(string="Is A Book")
     isbn = fields.Char(string='ISBN')
+    is_available = fields.Boolean(string='Is Available?')
     published_date = fields.Date(string='Published Date')
     publisher_id = fields.Many2one('res.partner', string='Publisher', index=True)
-    is_available = fields.Boolean(string='Is Available?')
-    active = fields.Boolean('Active?', default=True)
+    series = fields.Char(string='Series')
+    subject_area = fields.Many2one(string='Subject Area')
+    subject_number = fields.Char(string='Subject Number')
 
     def button_check_isbn(self):
         for book in self:

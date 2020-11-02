@@ -6,14 +6,25 @@ from odoo import api, models, fields
 class LibraryMember(models.Model):
     _name = 'res.library.member'
     _description = 'Library Member'
-    student_id = fields.Many2one(
-        'res.student',
-        delegate=True,
-        ondelete='cascade',
-        required="False")
-    library_id = fields.Char(string='Library ID', readonly=True)
+    borrowers_number = fields.Integer(string="Borrower's Number")
+    course = fields.Char(string='Course')
+    department = fields.Char(string='Department')
     date_of_membership = fields.Date(string='Date of Membership', default=date.today(), readonly=True)
-    total_books_checkout = fields.Integer()
+    email = fields.Char(string='Email')
+    faculty = fields.Many2one('res.partner', string='Faculty')
+    level = fields.Integer(string='Level')
+    library_id = fields.Char(string='Library ID', readonly=True)
+    home_address = fields.Char(string='Home Address')
+    hall = fields.Many2one('res.partner', string='Hall')
+    matriculation_number = field.Integer(string = 'Matriculation Number')
+    phone_number = fields.Integer(string='Phone Number')
+    passport = fields.Binary('Cover')
+    room_number = fields.Integer(string='Room Number')
+    session = fields.Integer(string='Session')
+    student_id = fields.Many2one(
+        'res.student', delegate=True, ondelete='cascade', required="False")
+    total_books_checkout = fields.Integer(string='Total Books Checkout')
+    # signature = fields.''
 
     # def action_done(self):
     #     for rec in self:

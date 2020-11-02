@@ -2,14 +2,8 @@
 {
     'name': 'Library',
     'summary': 'Manage your library efficiently.',
-    'description': """Detailed Feature List
-    Library Card: The system can create number of Identity card for Students and Staff. [done]
-    Book Information: The system can create and update and manage book lists and related data [done]
-    Book checkout: Decreases the number of book items when a checkout has been made
-    Book Issuance: The system can grant new book requests,track due date of issued books
-    (You can set the days to keep the book,you can also set the fine if the preset days exceeds) 
-    Return policy:
-    Book Lending:
+    'description': """
+    Detailed Feature List: 
     """,
     'author': "Matt O'Bell Ltd, Peter Ajiboye",
     'website': "http://www.mattobell.net",
